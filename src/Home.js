@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import bootstrap from 'bootstrap'
 import { Link } from 'react-router-dom'
+import fotohome from './foto_home.png'
 
 const Home = () => {
   return (
@@ -18,7 +19,7 @@ const Home = () => {
         </Link>
       </button>
       <a className="nav-link">
-        <img src="./public/foto_home"></img>
+        <img src={fotohome}></img>
       </a>
     </div>
   )
