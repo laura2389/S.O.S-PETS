@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logosos from "./logo_sos-pets.png"
+import "./Header.css"
 
 const Header = () => {
   return (
     <nav>
-      <ul className="nav justify-content-left">
+      <ul className="nav">
         <li className="nav-foto">
           <Link to={'home'}>
             <a className="nav-link">
-              <img src="./public/logo_sos-pets"></img>
+              <img src={logosos}></img>
             </a>
           </Link>
         </li>

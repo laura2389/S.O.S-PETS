@@ -1,0 +1,67 @@
+.nav-link img{
+    width: 100px;
+}
+nav{
+    width: 100%;
+}
+
+h1{
+    font-size: 3.2rem;
+}
+
+a{
+text-decoration: none;
+}
+
+.title{
+color:#FBB43B;
+}
+
+button{
+border-radius: 15px;
+border: 1px solid blue;
+background-color: transparent;
+padding: 3px;
+}
+
+.home_page{
+margin-top: 150px;
+}
+
+.nav-link{
+color: white;
+display: inline;
+}
+
+.nav-item{
+margin-left: 590px;
+margin-top: 18px;
+}
+
+.nav-item ul li{
+display: inline;
+}
+
+.nav-item ul li a{
+padding: 15px;
+}
+
+/* mouse over */
+.nav-link:hover {
+color: #000000;
+}
+
+/* link selecionado */
+.nav-link::before {
+color: white;
+}
+
+home{
+width: 100%;
+background-color: aqua;
+}
+
+header{
+background-color:#FBB43B;
+height: 70px;
+}
