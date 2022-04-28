@@ -1,31 +1,12 @@
-.nav-link img{
-    width: 100px;
-}
-nav{
-    width: 100%;
+header{
+    background-color:#FBB43B;
+    height: 70px;
 }
 
-h1{
-    font-size: 3.2rem;
-}
-
-a{
-text-decoration: none;
-}
-
-.title{
-color:#FBB43B;
-}
-
-button{
-border-radius: 15px;
-border: 1px solid blue;
-background-color: transparent;
-padding: 3px;
-}
-
-.home_page{
-margin-top: 150px;
+.foto_logo img{
+    width: 370px;
+    margin-top: -70px;
+    margin-left: -50px;
 }
 
 .nav-link{
@@ -34,8 +15,8 @@ display: inline;
 }
 
 .nav-item{
-margin-left: 590px;
-margin-top: 18px;
+margin-left: 450px;
+margin-top: 20px;
 }
 
 .nav-item ul li{
@@ -54,14 +35,4 @@ color: #000000;
 /* link selecionado */
 .nav-link::before {
 color: white;
-}
-
-home{
-width: 100%;
-background-color: aqua;
-}
-
-header{
-background-color:#FBB43B;
-height: 70px;
 }

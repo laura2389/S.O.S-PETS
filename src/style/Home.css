@@ -1,0 +1,36 @@
+.img_home img{
+  width: 550px;
+  margin-left: 45em;
+  margin-top: -290px;
+}
+nav{
+  width: 100%;
+}
+
+h1{
+  font-size: 3.2rem;
+  color: white;
+}
+
+h4{
+  color: white;
+}
+
+a{
+text-decoration: none;
+}
+
+.title{
+color:#FBB43B;
+}
+
+button{
+border-radius: 15px;
+border: 1px solid blue;
+background-color: transparent;
+padding: 3px;
+}
+
+.home_page{
+margin-top: 150px;
+}
