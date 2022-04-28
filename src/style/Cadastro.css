@@ -1,13 +1,7 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: #cfcfcf;
-}
-
-.header-container{
-  background-color: #FBB43B;
-  max-width: 100%;
-  max-height: 70px;
+  background-color: #030A13;
 }
 
 .cadastro_page {
@@ -15,47 +9,45 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.form {
-  background-color: rgba(19, 19, 19, 0.3); /*rgba(19, 19, 19, 0.3)*/
+.form_cadastro {
+  background-color: #4F4F4F; /*rgba(19, 19, 19, 0.3)*/
   padding: 40px;
-  border-radius: 2px;
-  width: 600px;
-  margin-top: 150px;
+  border-radius: 10px;
+  width: 700px;
+  height: 700px;
+  margin-top: 100px;
 }
 
-.header {
+.header_cadastro {
   padding-bottom: 50px;
   opacity: 0.8;
   color: #fff;
   margin-top: -30px;
 }
 
-.header::after {
+.header_cadastro::after {
   content: "";
   width: 135px;
   height: 1px;
   background-color: #fff;
   display: block;
-  margin-top: -5px;
-  margin-left: 3px;
 }
 
-.content label {
+.content_cadastro label {
   color: #fff;
   font-size: 12px;
   opacity: 0.8;
 }
 
-.content-area {
+.cadastro-area {
   display: flex;
   flex-direction: column;
   padding:10px 0;
 }
 
-.content-area input {
+.cadastro-area input {
   margin-top: 10px;
   padding:0 5px;
   background-color: transparent;
@@ -68,27 +60,27 @@ body {
 .footer {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-.footer .login__submit{
-  width: 100%;
+.footer_cadastro .login__submit{
+  width: 50%;
   height: 40px;
   background-color: #FBB43B;
   border:none;
   color:#e1e1e1;
   margin: 10px 0;
   cursor: pointer;
+  align-items: center;
+  margin: 0 25%;
 }
 
 .login__submit::after{
   content: "ou entre com";
-  width: 100%;
+  width: 160%;
   height: 1px;
   background-color: #fff;
   display: block;
-  margin-top: 30px;
-  margin-left: 3px;
+  margin: 30px -80px;
 }
 
 p{
@@ -101,13 +93,13 @@ p{
   margin-top: 10px;
 }
 
-.footer a{
+.footer_cadastro a{
   text-decoration: none;
   color: white;
 }
 
-.footer .login__submit2 {
-  width: 100%;
+.footer_cadastro .login2 {
+  width: 50%;
   height: 40px;
   background-color: #3b5998;
   border:none;
@@ -115,25 +107,25 @@ p{
   margin: 10px 0;
   cursor: pointer;
   transition: 0.3s ease-in-out;
-  margin-top: 40px;
+  margin: 10px 25%;
 }
 
-.footer .login__submit2:hover {
+.footer_cadastro .login__submit2:hover {
   background-color: #2c4272;
 }
 
 
-.footer .login__submit3 {
-  width: 100%;
+.footer_cadastro .login__submit3 {
+  width: 50%;
   height: 40px;
   background-color: #e8e9ee;
   border:none;
   color:#61566a;
-  margin: 10px 0;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  margin: 0px 25%;
 }
 
-.footer .login__submit3:hover {
+.footer_cadastro .login__submit3:hover {
   background-color: #c5c5ca;
 }

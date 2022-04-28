@@ -5,7 +5,7 @@ const Login = () => {
   return (
     <div className="login_page">
       <form class="form">
-        <div class="header">
+        <div class="header_login">
           <h2>Login</h2>
         </div>
         <div class="content">
@@ -19,10 +19,10 @@ const Login = () => {
           </div>
         </div>
         <div class="footer">
-          <button class="login__submit">Login</button>
-          <a href="#" class="recuperar_senha">
-            Esqueceu a senha?
-          </a>
+          <button class="login">Login</button>
+          <p>
+            Esqueceu a senha? <a href="#">Clique aqui</a>
+          </p>
           <button class="login__submit2">Entrar com o Facebook</button>
           <button class="login__submit3">Entrar com o Google</button>
         </div>

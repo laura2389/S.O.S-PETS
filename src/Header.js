@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logosos from './logo_sos-pets.png'
+import logosos from './img/logo_sos-pets.png'
 import './style/Header.css'
 
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
       <ul className="nav">
         <li className="nav-foto">
           <Link to={'home'}>
-            <a className="nav-link">
+            <a className="foto_logo">
               <img src={logosos}></img>
             </a>
           </Link>

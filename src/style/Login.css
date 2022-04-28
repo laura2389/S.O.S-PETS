@@ -1,9 +1,3 @@
-body {
-  padding: 0;
-  margin: 0;
-  background-color: #cfcfcf;
-}
-
 .header-container{
   background-color: #FBB43B;
   max-width: 100%;
@@ -15,31 +9,29 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .form {
-  background-color: rgba(19, 19, 19, 0.3); /*rgba(19, 19, 19, 0.3)*/
+  background-color: #4F4F4F; /*rgba(19, 19, 19, 0.3)*/
   padding: 40px;
-  border-radius: 2px;
+  border-radius: 10px;
   width: 400px;
   margin-top: -50px;
 }
 
-.header {
+.header_login {
   padding-bottom: 50px;
   color: #fff;
-  margin-top: -30px;
+  margin-top: -10px;
 }
 
-.header::after {
+.header_login::after {
   content: "";
   width: 70px;
   height: 1px;
   background-color: #fff;
-  display: block;
+  display: block;  
   margin-top: -7px;
-  margin-left: 3px;
 }
 
 .content label {
@@ -70,7 +62,7 @@ body {
   align-items: center;
 }
 
-.footer .login__submit{
+.footer .login{
   width: 100%;
   height: 40px;
   background-color: #FBB43B;
@@ -80,11 +72,13 @@ body {
   cursor: pointer;
 }
 
-.btn_social{
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
+/*.login__submit2::before{
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  display: block;
+}*/
 
 .footer a{
   text-decoration: none;
