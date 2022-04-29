@@ -16,7 +16,7 @@ const Home = () => {
       </h4>
       <button>
         <Link to={'buscar'}>
-          Busque seu pet<i className="bi bi-arrow-right"></i>
+          Busque seu pet <i className="bi bi-arrow-right"></i>
         </Link>
       </button>
       <div className='foto_home'>
