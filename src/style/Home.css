@@ -17,20 +17,20 @@ h4{
 }
 
 a{
-text-decoration: none;
+  text-decoration: none;
 }
 
 .title{
-color:#FBB43B;
+  color:#FBB43B;
 }
 
 button{
-border-radius: 15px;
-border: 1px solid blue;
-background-color: transparent;
-padding: 3px;
+  border-radius: 15px;
+  border: 1px solid #4178BF;
+  background-color: transparent;
+  padding: 4px;
 }
 
 .home_page{
-margin-top: 150px;
+  margin-top: 150px;
 }
