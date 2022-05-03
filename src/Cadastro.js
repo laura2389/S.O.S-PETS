@@ -16,8 +16,6 @@ const Cadastro = () => {
             <input type="text" id="usuario" autocomplete="off" />
             <label for="usuario">Sobrenome</label>
             <input type="text" id="usuario" autocomplete="off" />
-            <label for="usuario">Celular</label>
-            <input type="text" id="usuario" autocomplete="off" />
           </div>
           <div class="cadastro-area">
             <label for="password">Senha</label>
@@ -31,7 +29,6 @@ const Cadastro = () => {
         </div>
         <div class="footer_cadastro">
           <button class="login__submit">Cadastar</button>
-          <button class="login2">Entrar com o Facebook</button>
           <button class="login__submit3">Entrar com o Google</button>
         </div>
       </form>

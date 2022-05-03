@@ -24,10 +24,10 @@ const App = () => {
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/adicionar" element={<Adicionar />} />
           <Route path="/perfil" element={<Perfil />} />
-          <Route path="/buscar" element={<Buscar />} />
+          <Route path="/home/buscar" element={<Buscar />} />
           <Route path="/footer" element={<Footer />} />
           <Route path="/perfil/login" element={<Login />} />
-          <Route path="/perfil/cadastro" element={<Cadastro />} />
+          <Route path="/home/cadastro" element={<Cadastro />} />
         </Routes>
         <Outlet />
       </main>

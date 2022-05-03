@@ -1,8 +1,9 @@
 .img_home img{
-  width: 550px;
-  margin-left: 45em;
-  margin-top: -290px;
+  width: 40%;
+  margin-left: 60%;
+  margin-top: -370px;
 }
+
 nav{
   width: 100%;
 }
@@ -18,19 +19,37 @@ h4{
 
 a{
   text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  color: white;
 }
 
 .title{
   color:#FBB43B;
 }
 
+.btns{
+  display: flex;
+  flex-direction: column;
+}
+
 button{
   border-radius: 15px;
   border: 1px solid #4178BF;
   background-color: transparent;
-  padding: 4px;
+  padding: 8px;
+  margin: 0 15px;
+  margin-top: 10px;
+  width: 200px;
+}
+
+.cadastrar-se{
+  margin-top: 20px;
+  align-items: center;
 }
 
 .home_page{
-  margin-top: 150px;
+  margin-top: 100px;
 }
