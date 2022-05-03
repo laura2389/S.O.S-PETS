@@ -11,7 +11,6 @@ const Header = () => {
           <Link to={'sobre'}><a className="nav-link">SOBRE NÓS</a></Link>
           <Link to={'feedback'}><a className="nav-link">FEEDBACK</a></Link>
           <Link to={'footer'}><a className="nav-link">CONTATO</a></Link>
-          <Link to={'adicionar'}><a className="nav-link">icon_add</a></Link>
           <Link to={'perfil'}><a className="nav-link">icon_user</a></Link>
         </div>
     </nav>

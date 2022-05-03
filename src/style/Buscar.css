@@ -1,0 +1,84 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.header-container{
+  background-color: #FBB43B;
+  max-width: 100%;
+}
+
+#login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.buscar-container {
+  background-color: rgba(19, 19, 19, 0.3); /*rgba(19, 19, 19, 0.3)*/
+  padding: 40px;
+  border-radius: 8px;
+  width: 800px;
+  margin-top: 240px;
+  background-color: #FBB43B;
+  height: 500px;
+}
+
+.buscar-header {
+  padding-bottom: 50px;
+  color: #fff;
+  margin-top: -30px;
+}
+
+.buscar-header h1{
+  text-align: center;
+  color: #0B66DF;
+}
+
+.buscar-header::after {
+  content: "";
+  margin-left: 35px;
+  width: 650px;
+  height: 2px;
+  background-color: #0B66DF;
+  display: block;
+}
+
+.buscar-content{
+  margin-top: -60px;
+  display: flex;
+  justify-content: center;
+}
+
+.buscar-content label {
+  color: white;
+  font-size: 20px;
+}
+
+.genero{
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.buscar-content-area {
+  display: flex;
+  flex-direction: column;
+  padding:10px 20px;
+  width: 40%;
+  color: #0B66DF;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.buscar-content-area .aplicar{
+  width: 60%;
+  height: 40px;
+  background-color: #0B66DF;
+  color:#e1e1e1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 40px;
+}
