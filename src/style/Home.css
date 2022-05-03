@@ -47,7 +47,12 @@ button{
 
 .cadastrar-se{
   margin-top: 20px;
+  display: flex;
   align-items: center;
+}
+
+.entrar{
+  margin: -10px 8px;
 }
 
 .home_page{
