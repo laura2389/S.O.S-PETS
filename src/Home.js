@@ -17,7 +17,8 @@ const Home = () => {
       <div className="btns">
         <button><Link to={'buscar'}>Busque seu pet <i className="BsFillArrowRightSquareFillt"></i></Link></button>
         <button><Link to={'adicionar'}>Cadastre seu pet perdido<i className="bi bi-arrow-right"></i></Link></button>
-        <p className='cadastrar-se'>Não possui cadastro? <Link to={'cadastro'}><a>Clique aqui</a></Link></p>
+        <p className='cadastrar-se'>Não possui cadastro? .<Link to={'cadastro'}><a>Clique aqui</a></Link></p>
+        <p className='entrar'>Já possui conta? <Link to={'login'}><a>Clique aqui</a></Link></p>
       </div>
       <div className="foto_home">
         <a className="img_home">

@@ -15,11 +15,6 @@ const Perfil = () => {
           width="64px"
         />
       </div>
-      <p>
-        <Link to={'login'}>
-          <a className="nav-cadastro">Faça Login</a>
-        </Link>
-      </p>
     </div>
   )
 }
