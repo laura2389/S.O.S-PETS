@@ -23,7 +23,6 @@ const Login = () => {
           <p>
             Esqueceu a senha? <a href="#">Clique aqui</a>
           </p>
-          <button class="login__submit2">Entrar com o Facebook</button>
           <button class="login__submit3">Entrar com o Google</button>
         </div>
       </form>

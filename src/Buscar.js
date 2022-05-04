@@ -17,7 +17,7 @@ const Buscar = () => {
                 <option value="femea">Femea</option>
               </select>
               <label>Peso</label>
-              <input type="number" />
+              <input type="button" />
               <label>Cor</label>
               <input type="number" />
               <label>Acessorio</label>
