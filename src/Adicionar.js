@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import './style/Adicionar.css'
 
-
-
 const Adicionar = () => {
   return (
     <div className="adicionar_page">
