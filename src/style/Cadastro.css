@@ -16,7 +16,7 @@ body {
   border-radius: 10px;
   width: 700px;
   height: 550px;
-  margin-top: 20px;
+  margin-top: 70px;
 }
 
 .header_cadastro {
@@ -74,23 +74,8 @@ body {
   margin: 0 25%;
 }
 
-.login__submit::after{
-  content: "ou entre com";
-  width: 160%;
-  height: 1px;
-  background-color: #fff;
-  display: block;
-  margin: 30px -80px;
-}
-
 p{
   color: white;
-}
-
-.btn_social{
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
 }
 
 .footer_cadastro a{
@@ -107,7 +92,7 @@ p{
   color:#61566a;
   cursor: pointer;
   transition: 0.3s ease-in-out;
-  margin: 10px 25%;
+  margin: 30px 25%;
 }
 
 .footer_cadastro .login__submit3:hover {

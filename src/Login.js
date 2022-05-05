@@ -8,6 +8,7 @@ const Login = () => {
     e.preventDefault()
     console.log('submit', { email, password })
   }
+  
   return (
     <div className="login_page">
       <form class="form" onSubmit={handleSubmit}>

@@ -12,9 +12,7 @@ const Cadastro = () => {
           <div class="cadastro-area">
             <label for="usuario">Email</label>
             <input type="text" id="usuario" autocomplete="off" />
-            <label for="usuario">Primeiro nome</label>
-            <input type="text" id="usuario" autocomplete="off" />
-            <label for="usuario">Sobrenome</label>
+            <label for="usuario">Nome de Usuario</label>
             <input type="text" id="usuario" autocomplete="off" />
           </div>
           <div class="cadastro-area">
