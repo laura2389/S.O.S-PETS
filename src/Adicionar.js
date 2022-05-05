@@ -11,17 +11,20 @@ const Adicionar = () => {
           </div>
           <div class="adicionar-content">
             <div class="adicionar-content-area">
-            <label>Tipo de Usuario</label>
-              <input type="string" />
+              <p className="type-user">Tipo de Usuario</p>
+              <select name="genero">
+                <option value="macho">Perdeu</option>
+                <option value="femea">Encontrou</option>
+              </select>
               <p className="genero">Gênero</p>
               <select name="genero">
                 <option value="macho">Macho</option>
-                <option value="femea">Femea</option>
+                <option value="femea">Fêmea</option>
               </select>
               <label>Peso</label>
               <input type="number" />
               <label>Cor</label>
-              <input type="number" />
+              <input type="string" />
               <label>Acessorio</label>
               <input type="string" />
             </div>
