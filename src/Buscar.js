@@ -19,7 +19,7 @@ const Buscar = () => {
               <label>Peso</label>
               <input type="number" />
               <label>Cor</label>
-              <input type="number" />
+              <input type="string" />
               <label>Acessorio</label>
               <input type="string" />
               <label>Especie</label>
