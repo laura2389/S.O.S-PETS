@@ -57,12 +57,12 @@ const Login = props => {
 
   return (
     <div className="login_page">
-      <form class="form">
-        <div class="header_login">
+      <form className="form">
+        <div className="header_login">
           <h2>Login</h2>
         </div>
-        <div class="content">
-          <div class="content-area">
+        <div className="content">
+          <div className="content-area">
             <label for="usuario">Usuário</label>
             <input
               type="text"
@@ -73,7 +73,7 @@ const Login = props => {
               value={formState.email}
             />
           </div>
-          <div class="content-area">
+          <div className="content-area">
             <label for="password">Senha</label>
             <input
               type="password"
@@ -85,8 +85,8 @@ const Login = props => {
             />
           </div>
         </div>
-        <div class="footer">
-          <button class="login">Entrar</button>
+        <div className="footer">
+          <button className="login">Entrar</button>
         </div>
       </form>
     </div>

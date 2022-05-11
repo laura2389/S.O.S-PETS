@@ -14,6 +14,7 @@ body {
   padding: 40px;
   border-radius: 10px;
   width: 700px;
+  height: 570px;
   margin-top: 40px;
 }
 
@@ -21,7 +22,6 @@ body {
   padding-bottom: 50px;
   opacity: 0.8;
   color: #fff;
-  margin-top: -30px;
 }
 
 .header_cadastro::after {
@@ -41,8 +41,6 @@ body {
 .cadastro-area {
   display: flex;
   flex-direction: column;
-  padding:10px 0;
-  margin-top: -20px;
 }
 
 .cadastro-area input {
@@ -69,7 +67,11 @@ body {
   margin: 10px 0;
   cursor: pointer;
   align-items: center;
-  margin: 0 25%;
+  margin: 40px 25%;
+}
+
+.footer_cadastro .login__submit:hover {
+  background-color: #e4a22f;
 }
 
 p{
@@ -79,20 +81,4 @@ p{
 .footer_cadastro a{
   text-decoration: none;
   color: white;
-}
-
-
-.footer_cadastro .login__submit3 {
-  width: 50%;
-  height: 40px;
-  background-color: #e8e9ee;
-  border:none;
-  color:#61566a;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  margin: 30px 25%;
-}
-
-.footer_cadastro .login__submit3:hover {
-  background-color: #c5c5ca;
 }
