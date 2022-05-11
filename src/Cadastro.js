@@ -1,7 +1,69 @@
-import React, { useState } from 'react'
+import React, { useState, useReducer, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import myaxios from './myaxios'
 import './style/Cadastro.css'
 
+const formReducer = (state, action) => {
+  switch (action.type) {
+    case 'ATUALIZA':
+      return {
+        ...state,
+        [action.name]: action.value
+      }
+    case 'INICIALIZA_CAMPOS':
+      return { ...action.state }
+    default:
+      return state
+  }
+}
 const Cadastro = () => {
+  const initialState = { email: '', primeiroNome: '', sobrenome: '', senha: '' }
+  const [formState, dispatch] = useReducer(formReducer, initialState)
+  const [file, setfile] = useState(initialState)
+  const handleChange = e => {
+    dispatch({
+      type: 'ATUALIZA',
+      name: e.target.name,
+      value: e.target.value
+    })
+  }
+  const { id } = useParams()
+
+  const handleImageChange = e => {
+    setfile(e.target.files[0])
+  }
+
+  useEffect(() => {
+    if (id != null) {
+      myaxios.put('http://localhost:8080/usuario/' + id).then(res => {
+        dispatch({
+          type: 'INICIALIZA_CAMPOS',
+          state: res.data
+        })
+      })
+    }
+  }, [])
+
+  const submitForm = e => {
+    let url = 'http://localhost:8080/usuario'
+    e.preventDefault()
+    console.log(formState)
+
+    if (id != null) {
+      url += '/' + id
+      myaxios
+        .put(url, formState)
+        .then(res => alert('Dados enviados com sucesso'))
+    } else {
+      const formData = new FormData()
+      formData.append('usuario', JSON.stringify(formState))
+      formData.append('foto', file)
+      myaxios
+        .post(url, formData)
+        .then(res => alert('Dados enviados com sucesso'))
+    }
+  }
+
   return (
     <div className="cadastro_page">
       <form class="form_cadastro">
@@ -11,23 +73,60 @@ const Cadastro = () => {
         <div class="content_cadastro">
           <div class="cadastro-area">
             <label for="usuario">Email</label>
-            <input type="text" id="usuario" autocomplete="off" />
-            <label for="usuario">Nome de Usuario</label>
-            <input type="text" id="usuario" autocomplete="off" />
+            <input
+              type="text"
+              onChange={handleChange}
+              id="usuario"
+              placeholder="Digite seu email"
+              value={formState.email}
+            />
+            <label for="usuario">Primeiro nome</label>
+            <input
+              type="text"
+              onChange={handleChange}
+              id="usuario"
+              placeholder="Digite seu primeiro nome"
+              value={formState.primeiroNome}
+            />
+            <label for="usuario">Sobrenome</label>
+            <input
+              type="text"
+              onChange={handleChange}
+              id="usuario"
+              placeholder="Digite seu sobrenome"
+              value={formState.sobrenome}
+            />
           </div>
           <div class="cadastro-area">
             <label for="password">Senha</label>
-            <input type="password" id="password" autocomplete="off" />
+            <input
+              type="password"
+              onChange={handleChange}
+              id="password"
+              placeholder="Crie uma senha"
+              value={formState.email}
+            />
             <p>
               Ao criar uma conta, você concorda com os Termos e Condições Uso da
               S.O.S PETS. Para saber como tratamos os seus dados pessoais,
               acesse o nosso Aviso de Privacidade.
             </p>
+            <label for="profileImage">Foto de Perfil</label>
+            <input
+              type="file"
+              onChange={handleImageChange}
+              className="form-control"
+              name="profileImage"
+              id="profileImage"
+              aria-describedby="helpId"
+              placeholder="Adiocione uma foto de perfil"
+            />
           </div>
         </div>
         <div class="footer_cadastro">
-          <button class="login__submit">Cadastar</button>
-          <button class="login__submit3">Entrar com o Google</button>
+          <button type="submit" onClick={submitForm} className="login__submit">
+            Cadastar
+          </button>
         </div>
       </form>
     </div>

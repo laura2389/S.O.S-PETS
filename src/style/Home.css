@@ -1,3 +1,7 @@
+body{
+  background-color: #030A13;
+}
+
 .img_home img{
   width: 40%;
   margin-left: 60%;
@@ -42,17 +46,19 @@ button{
   padding: 8px;
   margin: 0 15px;
   margin-top: 10px;
-  width: 200px;
+  width: 230px;
 }
 
 .cadastrar-se{
   margin-top: 20px;
   display: flex;
   align-items: center;
+  color: white;
 }
 
 .entrar{
   margin: -10px 8px;
+  color: white;
 }
 
 .home_page{
