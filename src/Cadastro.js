@@ -35,7 +35,7 @@ const Cadastro = () => {
 
   useEffect(() => {
     if (id != null) {
-      myaxios.put('http://localhost:8080/usuario/' + id).then(res => {
+      myaxios.put('http://localhost:8080/' + id).then(res => {
         dispatch({
           type: 'INICIALIZA_CAMPOS',
           state: res.data
@@ -45,7 +45,7 @@ const Cadastro = () => {
   }, [])
 
   const submitForm = (e) => {
-    let url = 'http://localhost:8080/usuario'
+    let url = 'http://localhost:8080/auth/register'
     e.preventDefault()
     console.log(formState)
 

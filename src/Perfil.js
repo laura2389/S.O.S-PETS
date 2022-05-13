@@ -7,7 +7,6 @@ const Perfil = () => {
   return (
     <Popover>
       <Popover.Panel>
-        <h1>Hello World</h1>
       </Popover.Panel>
       <Popover.Button className="user">
         <h5><FaUser /></h5>
