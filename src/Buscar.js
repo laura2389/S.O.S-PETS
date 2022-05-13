@@ -9,7 +9,15 @@ const Buscar = () => {
           <div class="buscar-header">
             <h1>Busque por um pet</h1>
           </div>
-          <div class="buscar-content">
+          <div class="buscar-content">rkdfipjfuoh2 b3rf0813 rn18032fi
+
+          4kf i423jhig]4ifg
+           02i
+           0g2i 
+           40gfiu
+           9fguv2
+           fu23
+           9 
             <div class="buscar-content-area">
               <p className="genero">Gênero</p>
               <select name="genero">
