@@ -10,7 +10,7 @@ const Perfil = () => {
         <h1>Hello World</h1>
       </Popover.Panel>
       <Popover.Button className="user">
-        <FaUser />
+        <h5><FaUser /></h5>
       </Popover.Button>
     </Popover>
   )

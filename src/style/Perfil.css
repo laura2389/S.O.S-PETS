@@ -1,6 +1,10 @@
 .user{
   color: white;
-  padding: 23px;
   height: 100%;
+  width: 100px;
   border: transparent;
+}
+
+.user:hover{
+  color: #000000;
 }
