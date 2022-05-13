@@ -78,8 +78,8 @@ const Login = props => {
             <input
               type="password"
               onChange={handleChange}
-              name="password"
-              id="password"
+              name="senha"
+              id="senha"
               placeholder="Digite sua senha"
               value={formState.senha}
             />

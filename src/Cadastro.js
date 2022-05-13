@@ -20,7 +20,7 @@ const Cadastro = () => {
   const initialState = { email: '', primeiroNome: '', sobrenome: '', senha: '' }
   const [formState, dispatch] = useReducer(formReducer, initialState)
   const [file, setfile] = useState(initialState)
-  const handleChange = e => {
+  const handleChange = (e) => {
     dispatch({
       type: 'ATUALIZA',
       name: e.target.name,
@@ -29,7 +29,7 @@ const Cadastro = () => {
   }
   const { id } = useParams()
 
-  const handleImageChange = e => {
+  const handleImageChange = (e) => {
     setfile(e.target.files[0])
   }
 
@@ -44,7 +44,7 @@ const Cadastro = () => {
     }
   }, [])
 
-  const submitForm = e => {
+  const submitForm = (e) => {
     let url = 'http://localhost:8080/usuario'
     e.preventDefault()
     console.log(formState)
@@ -77,6 +77,7 @@ const Cadastro = () => {
               type="text"
               onChange={handleChange}
               id="usuario"
+              name="email"
               placeholder="Digite seu email"
               value={formState.email}
             />
@@ -85,6 +86,7 @@ const Cadastro = () => {
               type="text"
               onChange={handleChange}
               id="usuario"
+              name="primeiroNome"
               placeholder="Digite seu primeiro nome"
               value={formState.primeiroNome}
             />
@@ -93,18 +95,20 @@ const Cadastro = () => {
               type="text"
               onChange={handleChange}
               id="usuario"
+              name="sobrenome"
               placeholder="Digite seu sobrenome"
               value={formState.sobrenome}
             />
           </div>
           <div class="cadastro-area">
-            <label for="password">Senha</label>
+            <label for="senha">Senha</label>
             <input
               type="password"
               onChange={handleChange}
-              id="password"
+              id="senha"
+              name="senha"
               placeholder="Crie uma senha"
-              value={formState.email}
+              value={formState.senha}
             />
             <p>
               Ao criar uma conta, você concorda com os Termos e Condições Uso da

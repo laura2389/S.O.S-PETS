@@ -1,4 +1,6 @@
-.foto_perfil{
-  border-radius: 30px;
-  border: 1px solid grey;
+.user{
+  color: white;
+  padding: 23px;
+  height: 100%;
+  border: transparent;
 }
