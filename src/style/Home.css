@@ -34,6 +34,10 @@ a:hover{
   color:#FBB43B;
 }
 
+.title:hover{
+  color:#FBB43B;
+}
+
 .btns{
   display: flex;
   flex-direction: column;

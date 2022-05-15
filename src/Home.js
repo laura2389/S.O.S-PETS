@@ -3,6 +3,7 @@ import { IconName } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import fotohome from './img/foto_home.png'
 import './style/Home.css'
+import { FaArrowRight } from 'react-icons/fa'
 
 const Home = () => {
   return (
@@ -15,10 +16,30 @@ const Home = () => {
         mais facilidade
       </h4>
       <div className="btns">
-        <button><Link to={'buscar'}>Busque seu pet <i className="BsFillArrowRightSquareFillt"></i></Link></button>
-        <button><Link to={'adicionar'}>Cadastre seu pet perdido<i className="bi bi-arrow-right"></i></Link></button>
-        <p className='cadastrar-se'>Não possui cadastro? .<Link to={'cadastro'}><a>Clique aqui</a></Link></p>
-        <p className='entrar'>Já possui conta? <Link to={'login'}><a>Clique aqui</a></Link></p>
+        <button>
+          <Link to={'buscar'}>
+            Busque seu pet <FaArrowRight />
+            <i className="BsFillArrowRightSquareFillt"></i>
+          </Link>
+        </button>
+        <button>
+          <Link to={'adicionar'}>
+            Cadastre seu pet perdido <FaArrowRight />
+            <i className="bi bi-arrow-right"></i>
+          </Link>
+        </button>
+        <p className="cadastrar-se">
+          Não possui cadastro? .
+          <Link to={'cadastro'}>
+            <a>Clique aqui</a>
+          </Link>
+        </p>
+        <p className="entrar">
+          Já possui conta?{' '}
+          <Link to={'login'}>
+            <a>Clique aqui</a>
+          </Link>
+        </p>
       </div>
       <div className="foto_home">
         <a className="img_home">

@@ -3,8 +3,37 @@
   height: 100%;
   width: 100px;
   border: transparent;
+  background-color: transparent;
 }
 
 .user:hover{
   color: #000000;
+  background-color: transparent;
+}
+
+.foto_perfil{
+  background-color: bisque;
+}
+
+.foto_area{
+  border: 1px solid gray;
+  border-radius: 60px;
+  width: 50px;
+  margin-left: 36px;
+}
+
+.foto_perfil:hover{
+  background-color: bisque;
+}
+
+.foto_area:hover{
+  background-color: bisque;
+}
+
+.email_perfil:hover{
+  background-color: white;
+}
+
+.perfil{
+  color: grey;
 }
