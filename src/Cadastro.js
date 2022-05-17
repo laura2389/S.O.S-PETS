@@ -17,7 +17,7 @@ const formReducer = (state, action) => {
   }
 }
 const Cadastro = () => {
-  const initialState = { email: '', primeiroNome: '', sobrenome: '', senha: '' }
+  const initialState = { email: '', primeiroNome: '', sobrenome: '', senha: '', profileImage: ""}
   const [formState, dispatch] = useReducer(formReducer, initialState)
   const [file, setfile] = useState(initialState)
   const handleChange = (e) => {
