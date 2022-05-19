@@ -21,7 +21,7 @@ body {
   border-radius: 8px;
   width: 800px;
   margin-top: 240px;
-  background-color: #FBB43B;
+  background-color: #051020;
   height: 500px;
 }
 
@@ -33,7 +33,7 @@ body {
 
 .buscar-header h1{
   text-align: center;
-  color: #0B66DF;
+  color: #FD6D12;
 }
 
 .buscar-header::after {
@@ -41,7 +41,7 @@ body {
   margin-left: 35px;
   width: 650px;
   height: 2px;
-  background-color: #0B66DF;
+  background-color: #FD6D12;
   display: block;
 }
 
@@ -76,6 +76,7 @@ body {
   height: 40px;
   background-color: #0B66DF;
   color:#e1e1e1;
+  border-color: #0B66DF;
   cursor: pointer;
   display: flex;
   align-items: center;

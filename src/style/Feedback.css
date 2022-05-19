@@ -15,70 +15,79 @@ body {
   height: 50vh;
 }
 
-.adicionar-container {
+.feedback-container {
+  background-color: rgba(19, 19, 19, 0.3); /*rgba(19, 19, 19, 0.3)*/
   padding: 40px;
   border-radius: 8px;
   width: 800px;
   margin-top: 240px;
   background-color: #051020;
-  height: 500px;
+  height: 450px;
 }
 
-.adicionar-header {
+.feedback-header {
   padding-bottom: 50px;
   color: #fff;
-  margin-top: -30px;
 }
 
-.adicionar-header h1{
+.feedback-header h1{
   text-align: center;
-  color: #0B66DF;
+  color: #FD6D12;
 }
 
-.adicionar-header::after {
+.feedback-header::after {
   content: "";
   margin-left: 35px;
   width: 650px;
   height: 2px;
-  background-color: #0B66DF;
+  background-color: #FD6D12;
   display: block;
 }
 
-.adicionar-content{
-  margin-top: -60px;
-  display: flex;
-  justify-content: center;
+.input-feedback{
+  width: 400px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 15px;
+  font-size: 20px
 }
 
-.adicionar-content label {
+.feedback-content{
+  margin-top: -30px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.feedback-content label {
   color: white;
   font-size: 20px;
 }
 
-.genero{
+.radio-feedbak{
   font-size: 20px;
-  margin-bottom: 2px;
+  margin-bottom: 0;
 }
 
-.adicionar-content-area {
-  display: flex;
-  flex-direction: column;
-  padding:10px 20px;
-  width: 40%;
-  color: #0B66DF;
+.radio{
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.experince-feedback{
   font-size: 20px;
   margin-top: 20px;
 }
 
-.adicionar-content-area .cadastrar{
-  width: 60%;
-  height: 40px;
-  background-color: #0B66DF;
+.enviar-feedback{
+  width: 200px;
+  height: 35px;
+  background-color: #FD6D12;
   color:#e1e1e1;
+  border: none;
   cursor: pointer;
-  border-color: #0B66DF;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin: 15px 40px;
+  margin: 60px 250px;
+  font-size: 20px;
 }

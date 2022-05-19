@@ -16,13 +16,13 @@ const Home = () => {
         mais facilidade
       </h4>
       <div className="btns">
-        <button>
+        <button className='button-home'>
           <Link to={'buscar'}>
             Busque seu pet <FaArrowRight />
             <i className="BsFillArrowRightSquareFillt"></i>
           </Link>
         </button>
-        <button>
+        <button className='button-home'>
           <Link to={'adicionar'}>
             Cadastre seu pet perdido <FaArrowRight />
             <i className="bi bi-arrow-right"></i>

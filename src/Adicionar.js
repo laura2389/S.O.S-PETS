@@ -17,10 +17,20 @@ const formReducer = (state, action) => {
   }
 }
 const Adicionar = () => {
-  const initialState = { tipoUsuario: '', genero: '', peso: '', cor: '', acessorio: '',  especie: '', condição: '', localização: '', animalImage: "" }
+  const initialState = {
+    tipoUsuario: '',
+    genero: '',
+    peso: '',
+    cor: '',
+    acessorio: '',
+    especie: '',
+    condição: '',
+    localização: '',
+    animalImage: ''
+  }
   const [formState, dispatch] = useReducer(formReducer, initialState)
   const [file, setfile] = useState(initialState)
-  const handleChange = (e) => {
+  const handleChange = e => {
     dispatch({
       type: 'ATUALIZA',
       name: e.target.name,
@@ -29,7 +39,7 @@ const Adicionar = () => {
   }
   const { id } = useParams()
 
-  const handleImageChange = (e) => {
+  const handleImageChange = e => {
     setfile(e.target.files[0])
   }
 
@@ -44,7 +54,7 @@ const Adicionar = () => {
     }
   }, [])
 
-  const submitForm = (e) => {
+  const submitForm = e => {
     let url = 'http://localhost:8080/auth/register/cadastrapet'
     e.preventDefault()
     console.log(formState)
@@ -73,58 +83,88 @@ const Adicionar = () => {
           </div>
           <div class="adicionar-content">
             <div class="adicionar-content-area">
-                <label for="tipoUsuario">Tipo de Usuario</label>
-                <input type="string"
-              onChange={handleChange}
-              id="tipoUsuario"
-              name="tipoUsuario"
-              placeholder="Perdeu ou Encontrou"
-              value={formState.tipoUsuario}/>
-                <label for="genero">Gênero</label>
-                <input type="string"
-              onChange={handleChange}
-              id="genero"
-              name="genero"
-              placeholder="Macho ou Fêmea"
-              value={formState.genero}/>
+              <label for="tipoUsuario">Tipo de Usuario</label>
+              <input
+                type="string"
+                onChange={handleChange}
+                id="tipoUsuario"
+                name="tipoUsuario"
+                placeholder="Perdeu ou Encontrou"
+                value={formState.tipoUsuario}
+              />
+              <label for="genero">Gênero</label>
+              <input
+                type="string"
+                onChange={handleChange}
+                id="genero"
+                name="genero"
+                placeholder="Macho ou Fêmea"
+                value={formState.genero}
+              />
               <label for="peso">Peso</label>
-                <input type="number"
+              <input
+                type="number"
                 onChange={handleChange}
                 id="peso"
                 name="peso"
                 placeholder="Kg"
-                value={formState.peso}/>
+                value={formState.peso}
+              />
               <label for="cor">Cor</label>
-                <input type="string"
+              <input
+                type="string"
                 onChange={handleChange}
                 id="cor"
                 name="cor"
                 placeholder="Marrom"
-                value={formState.cor} />
+                value={formState.cor}
+              />
               <label for="acessorio">Acessorio</label>
-              <input type="string"
-               onChange={handleChange}
-               id="acessorio"
-               name="acessorio"
-               placeholder="Coleira Rosa"
-               value={formState.acessorio}  />
+              <input
+                type="string"
+                onChange={handleChange}
+                id="acessorio"
+                name="acessorio"
+                placeholder="Coleira Rosa"
+                value={formState.acessorio}
+              />
             </div>
             <div className="adicionar-content-area">
               <label for="especie">Especie</label>
-              <input type="string" />
-              <label>Condição</label>
-              <input type="string" />
-              <label>Localização</label>
-              <input type="string" />
-              <label for="profileImage">Adicione Foto do Pet</label>
-            <input
-              type="file"
-              onChange={handleImageChange}
-              className="form-control"
-              name="profileImage"
-              id="profileImage"
-              aria-describedby="helpId"
-              placeholder=""
+              <input
+                type="string"
+                onChange={handleChange}
+                id="especie"
+                name="especie"
+                placeholder="Cachorro"
+                value={formState.especie}
+              />
+              <label for="condição">Condição</label>
+              <input
+                type="string"
+                onChange={handleChange}
+                id="condição"
+                name="condição"
+                placeholder="sla"
+                value={formState.condição}
+              />
+              <label for="localização">Localização</label>
+              <input
+                type="string"
+                onChange={handleChange}
+                id="localização"
+                name="localização"
+                placeholder="Rua ..."
+                value={formState.localização}
+              />
+              <label for="animalImage">Adicione Foto do Pet</label>
+              <input
+                type="file"
+                onChange={handleImageChange}
+                className="form-control"
+                name="animalImage"
+                id="animalImage"
+                aria-describedby="helpId"
               />
               <button class="cadastrar">Cadastrar</button>
             </div>
