@@ -27,12 +27,11 @@ body {
 .adicionar-header {
   padding-bottom: 50px;
   color: #fff;
-  margin-top: -30px;
 }
 
 .adicionar-header h1{
   text-align: center;
-  color: #0B66DF;
+  color: #FD6D12;
 }
 
 .adicionar-header::after {
@@ -40,7 +39,7 @@ body {
   margin-left: 35px;
   width: 650px;
   height: 2px;
-  background-color: #0B66DF;
+  background-color: #FD6D12;
   display: block;
 }
 
@@ -71,14 +70,14 @@ body {
 }
 
 .adicionar-content-area .cadastrar{
-  width: 60%;
-  height: 40px;
-  background-color: #0B66DF;
+  width: 100%;
+  height: 36px;
+  background-color: #FD6D12;
   color:#e1e1e1;
   cursor: pointer;
-  border-color: #0B66DF;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px 40px;
+  margin: 24px 1px;
 }

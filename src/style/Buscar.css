@@ -28,7 +28,6 @@ body {
 .buscar-header {
   padding-bottom: 50px;
   color: #fff;
-  margin-top: -30px;
 }
 
 .buscar-header h1{
@@ -72,14 +71,14 @@ body {
 }
 
 .buscar-content-area .aplicar{
-  width: 60%;
-  height: 40px;
-  background-color: #0B66DF;
+  width: 100%;
+  height: 36px;
+  background-color: #FD6D12;
   color:#e1e1e1;
-  border-color: #0B66DF;
+  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px 40px;
+  margin: 15px 1px;
 }
