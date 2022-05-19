@@ -5,4 +5,20 @@
 
 .text-sobre{
   margin-top: 20px;
+  text-align: justify;
 }
+
+.sobre_images{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.imagens{
+  max-width: 350px;
+  max-height: 350px;
+  margin-right: 50px;
+
+}
+
+
