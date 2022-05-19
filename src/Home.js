@@ -16,22 +16,22 @@ const Home = () => {
         mais facilidade
       </h4>
       <div className="btns">
-        <button className='button-home'>
+        <button className="button-home">
           <Link to={'buscar'}>
             Busque seu pet <FaArrowRight />
             <i className="BsFillArrowRightSquareFillt"></i>
           </Link>
         </button>
-        <button className='button-home'>
+        <button className="button-home">
           <Link to={'adicionar'}>
-            Cadastre seu pet perdido <FaArrowRight />
+            Cadastre um pet <FaArrowRight />
             <i className="bi bi-arrow-right"></i>
           </Link>
         </button>
         <p className="cadastrar-se">
-          Não possui cadastro? .
+          Não possui cadastro?
           <Link to={'cadastro'}>
-            <a>Clique aqui</a>
+            <a className="clique-cadastro">Clique aqui</a>
           </Link>
         </p>
         <p className="entrar">

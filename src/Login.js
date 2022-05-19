@@ -63,7 +63,7 @@ const Login = props => {
         </div>
         <div className="content">
           <div className="content-area">
-            <label for="usuario">Usuário</label>
+            <label for="usuario">Email</label>
             <input
               type="text"
               onChange={handleChange}

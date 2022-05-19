@@ -50,13 +50,14 @@ body {
 }
 
 .adicionar-content label {
-  color: white;
+  color: #FD6D12;
   font-size: 20px;
 }
 
 .genero{
   font-size: 20px;
   margin-bottom: 2px;
+  color: #FD6D12;
 }
 
 .adicionar-content-area {

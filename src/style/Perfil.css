@@ -12,7 +12,7 @@
 }
 
 .foto_perfil{
-  background-color: bisque;
+  background-color: white;
 }
 
 .foto_area{
@@ -23,11 +23,11 @@
 }
 
 .foto_perfil:hover{
-  background-color: bisque;
+  background-color: white;
 }
 
 .foto_area:hover{
-  background-color: bisque;
+  background-color: white;
 }
 
 .email_perfil:hover{

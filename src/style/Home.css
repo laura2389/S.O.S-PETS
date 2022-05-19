@@ -53,6 +53,10 @@ a:hover{
   width: 230px;
 }
 
+.clique-cadastro{
+  margin-left: 5px;
+}
+
 .cadastrar-se{
   margin-top: 20px;
   display: flex;

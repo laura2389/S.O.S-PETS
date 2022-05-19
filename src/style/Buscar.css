@@ -51,13 +51,14 @@ body {
 }
 
 .buscar-content label {
-  color: white;
+  color: #FD6D12;
   font-size: 20px;
 }
 
 .genero{
   font-size: 20px;
   margin-bottom: 2px;
+  color: #FD6D12;
 }
 
 .buscar-content-area {
@@ -80,5 +81,5 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px 1px;
+  margin: 28px 1px;
 }

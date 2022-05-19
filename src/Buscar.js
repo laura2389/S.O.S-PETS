@@ -22,10 +22,10 @@ const Buscar = () => {
               <input type="string" />
               <label>Acessorio</label>
               <input type="string" />
-              <label>Especie</label>
-              <input type="string" />
             </div>
             <div className="buscar-content-area">
+              <label>Especie</label>
+              <input type="string" />
               <label>Condição</label>
               <input type="string" />
               <label>Localização</label>
