@@ -1,18 +1,46 @@
-import React from 'react'
-import './style/Perfil.css'
+import * as React from 'react'
+import Button from '@mui/material/Button'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import Fade from '@mui/material/Fade'
 import { FaUser } from 'react-icons/fa'
-import Dropdown from 'react-bootstrap/Dropdown'
+import './style/Perfil.css'
 
-const Perfil = () => {
+export default function FadeMenu() {
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const open = Boolean(anchorEl)
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
   return (
-    <Dropdown>
-      <Dropdown.Toggle className="user">
-        <h5>
+    <div>
+      <Button
+        id="fade-button"
+        aria-controls={open ? 'fade-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+      >
+        <h4>
           <FaUser />
-        </h5>
-      </Dropdown.Toggle>
-      <Dropdown.Menu>
-        <Dropdown.Item className="foto_perfil">
+        </h4>
+      </Button>
+      <Menu
+        id="fade-menu"
+        MenuListProps={{
+          'aria-labelledby': 'fade-button'
+        }}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        TransitionComponent={Fade}
+      >
+        <p className='foto-perfil'>
+          {' '}
           <div className="foto_area">
             <img
               src="https://avatars.dicebear.com/api/avataaars/23.svg"
@@ -20,16 +48,11 @@ const Perfil = () => {
               height="44px"
               width="44px"
             ></img>
-            <br></br>
           </div>
-        </Dropdown.Item>
-        <Dropdown.Item className="email_perfil">
-          <p className="perfil">renata@gmail.com</p>
-        </Dropdown.Item>
-        <Dropdown.Item href="">Sair</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+        </p>
+        <p className='email-perfil'>renata@gmail.com</p>
+        <MenuItem onClick={handleClose}>Sair</MenuItem>
+      </Menu>
+    </div>
   )
 }
-
-export default Perfil

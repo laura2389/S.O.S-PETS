@@ -1,39 +1,15 @@
-.user{
-  color: white;
-  height: 100%;
-  width: 100px;
-  border: transparent;
-  background-color: transparent;
-}
-
-.user:hover{
-  color: #000000;
-  background-color: transparent;
-}
-
-.foto_perfil{
-  background-color: white;
-}
-
 .foto_area{
   border: 1px solid gray;
   border-radius: 60px;
   width: 50px;
-  margin-left: 36px;
+  margin-left: 45px;
 }
 
-.foto_perfil:hover{
-  background-color: white;
+.foto-perfil{
+  margin-bottom: 0px;
 }
 
-.foto_area:hover{
-  background-color: white;
-}
-
-.email_perfil:hover{
-  background-color: white;
-}
-
-.perfil{
+.email-perfil{
   color: grey;
+  padding: 10px;
 }
