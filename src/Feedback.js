@@ -14,14 +14,8 @@ const Feedback = () => {
               <p className="radio-feedbak">
                 1. O serviço que você utilizou foi útil para você hoje?
               </p>
-              <input type="radio" id="contactChoice1" />
-              <label className="radio" for="contactChoice1">
-                Sim
-              </label>
-              <input type="radio" id="contactChoice2" />
-              <label className="radio" for="contactChoice2">
-                Não
-              </label>
+              <input className='input' type="radio" name="avaliacao" value="sim"/> Sim
+              <input className='input' type="radio" name="avaliacao" value="nao"/> Não
               <br />
               <label className="experince-feedback">
                 2. O que podemos fazer para melhorar sua experiência?

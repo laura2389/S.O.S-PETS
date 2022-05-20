@@ -11,8 +11,8 @@ const Home = () => {
         BEM VINDO AO <a className="title">SOS PETS</a>
       </h1>
       <h4>
-        Aqui você encontra o seu animal perdido com <br />
-        mais facilidade
+        Aqui você encontra o seu animal perdido com mais<br />
+         facilidade
       </h4>
       <div className="btns">
         <button className="button-home">

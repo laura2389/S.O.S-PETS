@@ -61,7 +61,7 @@ body {
 .footer_cadastro .login__submit{
   width: 50%;
   height: 40px;
-  background-color: #FBB43B;
+  background-color: #FD6D12;
   border:none;
   color:#e1e1e1;
   margin: 10px 0;
@@ -71,7 +71,7 @@ body {
 }
 
 .footer_cadastro .login__submit:hover {
-  background-color: #e4a22f;
+  background-color: #c85108;
 }
 
 p{

@@ -1,6 +1,7 @@
 body {
   padding: 0;
   margin: 0;
+  color: white;
 }
 
 .header-container{
@@ -42,6 +43,10 @@ body {
   height: 2px;
   background-color: #FD6D12;
   display: block;
+}
+
+.input{
+  margin-left: 10px;
 }
 
 .input-feedback{

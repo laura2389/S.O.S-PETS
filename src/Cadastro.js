@@ -115,16 +115,6 @@ const Cadastro = () => {
               S.O.S PETS. Para saber como tratamos os seus dados pessoais,
               acesse o nosso Aviso de Privacidade.
             </p>
-            <label for="profileImage">Foto de Perfil</label>
-            <input
-              type="file"
-              onChange={handleImageChange}
-              className="form-control"
-              name="profileImage"
-              id="profileImage"
-              aria-describedby="helpId"
-              placeholder="Adiocione uma foto de perfil"
-            />
           </div>
         </div>
         <div class="footer_cadastro">
