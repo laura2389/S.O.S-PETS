@@ -20,7 +20,7 @@ const Adicionar = () => {
   const initialState = {
     tipoUsuario: '',
     genero: '',
-    peso: '',
+    porte: '',
     cor: '',
     acessorio: '',
     especie: '',
@@ -89,7 +89,7 @@ const Adicionar = () => {
                 onChange={handleChange}
                 id="tipoUsuario"
                 name="tipoUsuario"
-                placeholder="Perdeu ou Encontrou"
+                placeholder="ex: perdeu ou encontrou"
                 value={formState.tipoUsuario}
               />
               <label for="genero">Gênero</label>
@@ -98,17 +98,17 @@ const Adicionar = () => {
                 onChange={handleChange}
                 id="genero"
                 name="genero"
-                placeholder="Macho ou Fêmea"
+                placeholder="ex: macho ou fêmea"
                 value={formState.genero}
               />
-              <label for="peso">Peso</label>
+              <label for="porte">Porte</label>
               <input
-                type="number"
+                type="string"
                 onChange={handleChange}
-                id="peso"
-                name="peso"
-                placeholder="Kg"
-                value={formState.peso}
+                id="porte"
+                name="porte"
+                placeholder="ex: pequeno, medio ou grande"
+                value={formState.porte}
               />
               <label for="cor">Cor</label>
               <input
@@ -116,7 +116,7 @@ const Adicionar = () => {
                 onChange={handleChange}
                 id="cor"
                 name="cor"
-                placeholder="Marrom"
+                placeholder="ex: marrom"
                 value={formState.cor}
               />
               <label for="acessorio">Acessorio</label>
@@ -125,7 +125,7 @@ const Adicionar = () => {
                 onChange={handleChange}
                 id="acessorio"
                 name="acessorio"
-                placeholder="Coleira Rosa"
+                placeholder="ex: coleira rosa"
                 value={formState.acessorio}
               />
             </div>
@@ -136,7 +136,7 @@ const Adicionar = () => {
                 onChange={handleChange}
                 id="especie"
                 name="especie"
-                placeholder="Cachorro"
+                placeholder="ex: cachorro"
                 value={formState.especie}
               />
               <label for="condição">Condição</label>
@@ -145,7 +145,7 @@ const Adicionar = () => {
                 onChange={handleChange}
                 id="condição"
                 name="condição"
-                placeholder="sla"
+                placeholder="ex: pata enfaixada"
                 value={formState.condição}
               />
               <label for="localização">Localização</label>
@@ -154,7 +154,7 @@ const Adicionar = () => {
                 onChange={handleChange}
                 id="localização"
                 name="localização"
-                placeholder="Rua ..."
+                placeholder="ex: Rua Pedro Villo"
                 value={formState.localização}
               />
               <label for="animalImage">Adicione Foto do Pet</label>

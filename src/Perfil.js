@@ -51,6 +51,7 @@ export default function FadeMenu() {
           </div>
         </p>
         <p className='email-perfil'>renata@gmail.com</p>
+        <MenuItem onClick={handleClose}>Editar Perfil</MenuItem>
         <MenuItem onClick={handleClose}>Sair</MenuItem>
       </Menu>
     </div>
