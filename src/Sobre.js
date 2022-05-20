@@ -17,9 +17,9 @@ const Sobre = () => {
       <img className='imagens' src={pets2}></img> 
       <img className='imagens' src={pets3}></img> 
       </div>
-      <footer>
-        <a href=''><FaInstagram/></a>
-        <a href=''><FaFacebookSquare/></a>
+      <footer className='redes-redes'>
+        <a className='redes' href=''><FaInstagram/></a>
+        <a className='redes' href=''><FaFacebookSquare/></a>
       </footer>
     </div>
 

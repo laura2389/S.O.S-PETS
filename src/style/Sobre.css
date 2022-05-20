@@ -18,7 +18,15 @@
   max-width: 350px;
   max-height: 350px;
   margin-right: 50px;
-
 }
 
+.redes-redes{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.redes{
+  margin-left: 20px;
+  font-size: 30px;
+}
 

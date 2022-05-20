@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { IconName } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import fotohome from './img/foto_home.png'
 import './style/Home.css'
