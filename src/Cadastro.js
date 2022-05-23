@@ -17,10 +17,14 @@ const formReducer = (state, action) => {
   }
 }
 const Cadastro = () => {
-  const initialState = { email: '', primeiroNome: '', sobrenome: '', senha: '', profileImage: ""}
+  const initialState = {
+    email: '',
+    nome: '',
+    senha: ''
+  }
   const [formState, dispatch] = useReducer(formReducer, initialState)
   const [file, setfile] = useState(initialState)
-  const handleChange = (e) => {
+  const handleChange = e => {
     dispatch({
       type: 'ATUALIZA',
       name: e.target.name,
@@ -28,10 +32,6 @@ const Cadastro = () => {
     })
   }
   const { id } = useParams()
-
-  const handleImageChange = (e) => {
-    setfile(e.target.files[0])
-  }
 
   useEffect(() => {
     if (id != null) {
@@ -44,7 +44,7 @@ const Cadastro = () => {
     }
   }, [])
 
-  const submitForm = (e) => {
+  const submitForm = e => {
     let url = 'http://localhost:8080/auth/register'
     e.preventDefault()
     console.log(formState)
@@ -57,7 +57,6 @@ const Cadastro = () => {
     } else {
       const formData = new FormData()
       formData.append('usuario', JSON.stringify(formState))
-      formData.append('foto', file)
       myaxios
         .post(url, formData)
         .then(res => alert('Dados enviados com sucesso'))
@@ -81,23 +80,14 @@ const Cadastro = () => {
               placeholder="Digite seu email"
               value={formState.email}
             />
-            <label for="usuario">Primeiro nome</label>
+            <label for="usuario">Nome</label>
             <input
               type="text"
               onChange={handleChange}
               id="usuario"
               name="primeiroNome"
               placeholder="Digite seu primeiro nome"
-              value={formState.primeiroNome}
-            />
-            <label for="usuario">Sobrenome</label>
-            <input
-              type="text"
-              onChange={handleChange}
-              id="usuario"
-              name="sobrenome"
-              placeholder="Digite seu sobrenome"
-              value={formState.sobrenome}
+              value={formState.nome}
             />
           </div>
           <div class="cadastro-area">

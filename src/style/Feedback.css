@@ -31,9 +31,10 @@ body {
   color: #fff;
 }
 
-.feedback-header h1{
+.feedback-header h2{
   text-align: center;
   color: #FD6D12;
+  font-weight: bold;
 }
 
 .feedback-header::after {
@@ -84,6 +85,11 @@ body {
   margin-top: 20px;
 }
 
+.enviar{
+  display: flex;
+  justify-content: center;
+}
+
 .enviar-feedback{
   width: 200px;
   height: 36px;
@@ -93,6 +99,6 @@ body {
   cursor: pointer;
   display: flex;
   justify-content: center;
-  margin: 60px 250px;
+  margin-top: 50px;
   font-size: 20px;
 }

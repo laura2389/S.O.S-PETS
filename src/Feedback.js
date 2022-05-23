@@ -7,7 +7,7 @@ const Feedback = () => {
       <div id="login">
         <form class="feedback-container">
           <div class="feedback-header">
-            <h1>Feedback</h1>
+            <h2>FEEDBACK</h2>
           </div>
           <div class="feedback-content">
             <div class="feedback-content-area">
@@ -21,7 +21,9 @@ const Feedback = () => {
                 2. O que podemos fazer para melhorar sua experiência?
               </label>
               <input className="input-feedback" type="string" />
+              <div className='enviar'>
               <button class="enviar-feedback">Enviar</button>
+              </div>
             </div>
           </div>
         </form>

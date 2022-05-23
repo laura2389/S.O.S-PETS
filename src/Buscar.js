@@ -7,7 +7,7 @@ const Buscar = () => {
       <div id="login">
         <form class="buscar-container">
           <div class="buscar-header">
-            <h1>Busque por um pet</h1>
+            <h2>BUSQUE SEU PET</h2>
           </div>
           <div class="buscar-content">
             <div class="buscar-content-area">

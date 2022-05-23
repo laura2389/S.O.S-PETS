@@ -79,7 +79,7 @@ const Adicionar = () => {
       <div id="login">
         <form class="adicionar-container">
           <div class="adicionar-header">
-            <h1>Cadastre seu pet</h1>
+            <h2>CADASTRE UM PET</h2>
           </div>
           <div class="adicionar-content">
             <div class="adicionar-content-area">

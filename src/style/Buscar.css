@@ -30,9 +30,10 @@ body {
   color: #fff;
 }
 
-.buscar-header h1{
+.buscar-header h2{
   text-align: center;
   color: #FD6D12;
+  font-weight: bold;
 }
 
 .buscar-header::after {
