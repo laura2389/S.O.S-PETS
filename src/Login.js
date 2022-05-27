@@ -2,6 +2,7 @@ import React, { useState, useReducer, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import './style/Login.css'
 import { reduxLogin } from './actions'
+import myaxios from './myaxios'
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -17,10 +18,10 @@ const formReducer = (state, action) => {
   }
 }
 
-const Login = props => {
-  const initialState = { email: '', senha: '' }
-  const [formState, dispatch] = useReducer(formReducer, initialState)
-  const [file, setfile] = useState(initialState)
+const Login = () => {
+  
+  const [formState, dispatch] = useReducer(formReducer)
+
   const handleChange = e => {
     dispatch({
       type: 'ATUALIZA',
@@ -29,29 +30,16 @@ const Login = props => {
     })
   }
 
-  const responseGoogle = async response => {
-    console.log(response)
-    const googleToken = response.tokenId
-    const fcmToken = props.token
-    dispatch(await reduxLogin({ googleToken, fcmToken }))
-  }
-
   const { id } = useParams()
 
-  const handleImageChange = e => {
-    setfile(e.target.files[0])
-  }
+  const { email, senha } = formState;
 
   useEffect(() => {
     if (id != null) {
-      fetch('http://localhost:8080/usuario/' + id)
-        .then(response => response.json())
-        .then(data => {
-          dispatch({
-            type: 'INICIALIZA_CAMPOS',
-            state: data
-          })
-        })
+      myaxios.post("/usuario", {email, senha}).then(r => {
+        localStorage.setItem("token", r.data)
+      })
+      console.log({email, senha})
     }
   }, [])
 

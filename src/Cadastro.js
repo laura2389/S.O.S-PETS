@@ -5,25 +5,22 @@ import './style/Cadastro.css'
 
 const formReducer = (state, action) => {
   switch (action.type) {
-    case 'ATUALIZA':
-      return {
-        ...state,
-        [action.name]: action.value
-      }
-    case 'INICIALIZA_CAMPOS':
-      return { ...action.state }
-    default:
-      return state
+      case 'ATUALIZA':
+          return {
+              ...state,
+              [action.name]: action.value
+          }
+      default:
+          return state;
   }
 }
+
 const Cadastro = () => {
-  const initialState = {
-    email: '',
-    nome: '',
-    senha: ''
-  }
-  const [formState, dispatch] = useReducer(formReducer, initialState)
+  const initialState =  { email: "", nome: "", senha: "" }
+  const [formState, dispatch] = useReducer(formReducer)
   const [file, setfile] = useState(initialState)
+  const { email, nome, senha } = formState
+
   const handleChange = e => {
     dispatch({
       type: 'ATUALIZA',
@@ -35,7 +32,7 @@ const Cadastro = () => {
 
   useEffect(() => {
     if (id != null) {
-      myaxios.put('http://localhost:8080/' + id).then(res => {
+      myaxios.put(id).then(res => {
         dispatch({
           type: 'INICIALIZA_CAMPOS',
           state: res.data
@@ -44,34 +41,32 @@ const Cadastro = () => {
     }
   }, [])
 
-  const submitForm = e => {
-    let url = 'http://localhost:8080/auth/register'
+  const SubmitForm = e => {
     e.preventDefault()
-    console.log(formState)
 
     if (id != null) {
-      url += '/' + id
       myaxios
-        .put(url, formState)
-        .then(res => alert('Dados enviados com sucesso'))
+        .put(`auth/register/${id}`, { email, nome, senha }).then(r => {
+          localStorage.setItem("token", r.data)})
+          console.log({ email, nome, senha })
     } else {
-      const formData = new FormData()
-      formData.append('usuario', JSON.stringify(formState))
+     
       myaxios
-        .post(url, formData)
-        .then(res => alert('Dados enviados com sucesso'))
+        .post('auth/register',  { email, nome, senha }).then(r => {
+          localStorage.setItem("token", r.data)})
+          console.log({ email, nome, senha })
     }
   }
 
   return (
     <div className="cadastro_page">
-      <form class="form_cadastro">
-        <div class="header_cadastro">
+      <form className="form_cadastro">
+        <div className="header_cadastro">
           <h2>Cadastre-se</h2>
         </div>
-        <div class="content_cadastro">
-          <div class="cadastro-area">
-            <label for="usuario">Email</label>
+        <div className="content_cadastro">
+          <div className="cadastro-area">
+            <label for="email">Email</label>
             <input
               type="text"
               onChange={handleChange}
@@ -80,17 +75,17 @@ const Cadastro = () => {
               placeholder="Digite seu email"
               value={formState.email}
             />
-            <label for="usuario">Nome</label>
+            <label for="nome">Nome</label>
             <input
               type="text"
               onChange={handleChange}
-              id="usuario"
-              name="primeiroNome"
+              id="nome"
+              name="nome"
               placeholder="Digite seu primeiro nome"
               value={formState.nome}
             />
           </div>
-          <div class="cadastro-area">
+          <div className="cadastro-area">
             <label for="senha">Senha</label>
             <input
               type="password"
@@ -107,8 +102,8 @@ const Cadastro = () => {
             </p>
           </div>
         </div>
-        <div class="footer_cadastro">
-          <button type="submit" onClick={submitForm} className="login__submit">
+        <div className="footer_cadastro">
+          <button type="submit" onClick={SubmitForm} className="login__submit">
             Cadastar
           </button>
         </div>
