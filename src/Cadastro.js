@@ -21,7 +21,7 @@ const Cadastro = () => {
   const [file, setfile] = useState(initialState)
   const { email, nome, senha } = formState
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     dispatch({
       type: 'ATUALIZA',
       name: e.target.name,
@@ -41,14 +41,14 @@ const Cadastro = () => {
     }
   }, [])
 
-  const SubmitForm = e => {
+  const SubmitForm = (e) => {
     e.preventDefault()
 
     if (id != null) {
       myaxios
         .put(`auth/register/${id}`, { email, nome, senha }).then(r => {
           localStorage.setItem("token", r.data)})
-          console.log({ email, nome, senha })
+
     } else {
      
       myaxios
