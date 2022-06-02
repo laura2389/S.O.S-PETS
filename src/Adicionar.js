@@ -54,8 +54,13 @@ const Adicionar = () => {
     }
   }, [])
 
+<<<<<<< HEAD
   const submitForm = e => {
     let url = 'http://localhost:38000/animaldomestico'
+=======
+  const submitForm = (e) => {
+    let url = 'http://localhost:8080/auth/register/cadastrapet'
+>>>>>>> 3e9e45dfe01cd30cad7bb3ea36d583641a36c6c0
     e.preventDefault()
     console.log(formState)
 
