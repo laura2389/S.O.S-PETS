@@ -1,7 +1,50 @@
-import React, { useState } from 'react'
+import React, { useState, useReducer } from 'react'
 import './style/Buscar.css'
+import myaxios from './myaxios'
+
+
+
+const formReducer = (state, action) => {
+  switch(action.type){
+    case 'ATUALIZA':
+      return {
+        ...state,
+        [action.name]: action.value
+      }
+    case 'INICIALIZA_CAMPOS':
+      return { ...action.state }
+    default:
+      return state;
+  }
+}
 
 const Buscar = () => {
+  const initialState = { especie: "", genero: "", porte: "",  cor: "",  acessorio: "", condicaoAnimal: "" }
+  const [formState, dispatch] = useReducer(formReducer, initialState);
+  const [file, setfile] = useState(initialState)
+  const {especie,  genero, porte,  cor,  acessorio, condicaoAnimal} = formState
+  const pegaValor =(e) => {
+    console.log(e.target.value);
+  } 
+
+  const handleChange = (e) => {
+    dispatch({
+      type: 'ATUALIZA',
+      name: e.target.name,
+      value: e.target.value
+    }) 
+}
+
+
+  const submeter = (e) => {
+    e.preventDefault();
+    const  { especie,  genero, porte,  cor,  acessorio, condicaoAnimal} = formState
+    console.log( especie,  genero, porte,  cor,  acessorio, condicaoAnimal )
+    const u = new URLSearchParams(formState).toString();
+    myaxios.get("/animaldomestico/query?" + u)
+  }
+
+
   return (
     <div className="buscar_page">
       <div id="login">
@@ -9,28 +52,77 @@ const Buscar = () => {
           <div class="buscar-header">
             <h2>BUSQUE SEU PET</h2>
           </div>
-          <div class="buscar-content">
+          <div  class="buscar-content">
             <div class="buscar-content-area">
-              <p className="genero">Gênero</p>
-              <select name="genero">
-                <option value="macho">Macho</option>
-                <option value="femea">Femea</option>
+
+              <p  className="Genero" >Gênero</p>
+              <select onChange={handleChange} name="genero">
+              <option disabled selected value>  Escolha uma opção  </option>
+                <option value="Macho">Macho</option>
+                <option value="Femea">Fêmea</option>
               </select>
-              <label>Peso</label>
-              <input type="number" />
+
+              <label >Porte</label>
+              <select onChange={handleChange} name="porte">
+              <option disabled selected value>  Escolha uma opção  </option>
+                <option value="Pequeno">Pequeno</option>
+                <option value="Medio">Medio</option>
+                <option value="Grande">Grande</option>
+              </select>
+
               <label>Cor</label>
-              <input type="string" />
-              <label>Acessorio</label>
-              <input type="string" />
+              <select onChange={handleChange} name="cor">
+                <option disabled selected value>  Escolha uma opção  </option>
+                <option value="Preto">Preto</option>
+                <option value="Branco">Branco</option>
+                <option value="Laranja">Laranja</option>
+                <option value="Caramelo">Caramelo</option>
+                <option value="Cinza">Cinza</option>
+                <option value="Marrom">Marrom</option>
+                <option value="Listrado">Listrado</option>
+                <option value="Frajola">Frajola</option>
+                <option value="Tigrado">Tigrado</option>
+                <option value="Pardo">Pardo</option>
+                <option value="Bege">Bege</option>
+                <option value="Creme">Creme</option>
+                <option value="Dourado">Dourado</option>
+              </select>
+
+             
             </div>
+
             <div className="buscar-content-area">
               <label>Especie</label>
-              <input type="string" />
-              <label>Condição</label>
-              <input type="string" />
-              <label>Localização</label>
-              <input type="string" />
-              <button class="aplicar">Buscar</button>
+              <select onChange={handleChange} name="especie">
+              <option disabled selected value>  Escolha uma opção  </option>
+                <option value="Cachorro">Cachorro</option>
+                <option value="Gato">Gato</option>
+                <option value="Coelho">Coelho</option>
+                <option value="Calopsita">Calopsita</option>
+                <option value="Cavalo">Cavalo</option>
+                <option value="Rato">Rato</option>
+                <option value="Hamster">Hamster</option>
+                <option value="Papagaio">Papagaio</option>
+                <option value="Porco">Porco</option>
+                <option value="Cobra">Cobra</option>
+              </select>
+
+              <label>Condição do Animal</label>
+              <select onChange={handleChange} name="condicaoAnimal">
+              <option disabled selected value>  Escolha uma opção  </option>
+                <option value="Nenhum">Nenhum</option>
+                <option value="Prenha">Prenha</option>
+                <option value="Machucado">Machucado</option>
+                <option value="Aleijado">Aleijado</option>
+                <option value="Cego">Cego</option>
+                <option value="Outro">Outro</option>
+              </select>
+
+             
+             <label>Acessorio</label>
+              <input  type="string" onChange={handleChange} name="acessorio"/>
+
+              <button onClick={submeter} class="aplicar">Buscar</button>
             </div>
           </div>
         </form>
