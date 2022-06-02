@@ -19,8 +19,8 @@ const formReducer = (state, action) => {
 }
 
 const Login = () => {
-  
-  const [formState, dispatch] = useReducer(formReducer)
+  const initialState =  { email: "", senha: "" }
+  const [formState, dispatch] = useReducer(formReducer, initialState)
 
   const handleChange = e => {
     dispatch({
@@ -51,7 +51,7 @@ const Login = () => {
         </div>
         <div className="content">
           <div className="content-area">
-            <label for="usuario">Email</label>
+            <label htmlFor="usuario">Email</label>
             <input
               type="text"
               onChange={handleChange}
@@ -62,7 +62,7 @@ const Login = () => {
             />
           </div>
           <div className="content-area">
-            <label for="password">Senha</label>
+            <label htmlFor="password">Senha</label>
             <input
               type="password"
               onChange={handleChange}

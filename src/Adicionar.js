@@ -54,7 +54,7 @@ const Adicionar = () => {
     }
   }, [])
 
-  const submitForm = e => {
+  const submitForm = (e) => {
     let url = 'http://localhost:8080/auth/register/cadastrapet'
     e.preventDefault()
     console.log(formState)

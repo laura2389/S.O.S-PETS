@@ -17,9 +17,8 @@ const formReducer = (state, action) => {
 
 const Cadastro = () => {
   const initialState =  { email: "", nome: "", senha: "" }
-  const [formState, dispatch] = useReducer(formReducer)
+  const [formState, dispatch] = useReducer(formReducer, initialState)
   const [file, setfile] = useState(initialState)
-  const { email, nome, senha } = formState
 
   const handleChange = (e) => {
     dispatch({
@@ -43,7 +42,7 @@ const Cadastro = () => {
 
   const SubmitForm = (e) => {
     e.preventDefault()
-
+    const  { email, nome, senha } = formState;
     if (id != null) {
       myaxios
         .put(`auth/register/${id}`, { email, nome, senha }).then(r => {
@@ -66,7 +65,7 @@ const Cadastro = () => {
         </div>
         <div className="content_cadastro">
           <div className="cadastro-area">
-            <label for="email">Email</label>
+            <label  htmlFor="usuario">Email</label>
             <input
               type="text"
               onChange={handleChange}
@@ -75,7 +74,7 @@ const Cadastro = () => {
               placeholder="Digite seu email"
               value={formState.email}
             />
-            <label for="nome">Nome</label>
+            <label htmlFor="nome">Nome</label>
             <input
               type="text"
               onChange={handleChange}
@@ -86,7 +85,7 @@ const Cadastro = () => {
             />
           </div>
           <div className="cadastro-area">
-            <label for="senha">Senha</label>
+            <label htmlFor="senha">Senha</label>
             <input
               type="password"
               onChange={handleChange}
@@ -104,7 +103,7 @@ const Cadastro = () => {
         </div>
         <div className="footer_cadastro">
           <button type="submit" onClick={SubmitForm} className="login__submit">
-            Cadastar
+            Cadastrar
           </button>
         </div>
       </form>
