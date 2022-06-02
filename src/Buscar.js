@@ -48,12 +48,12 @@ const Buscar = () => {
   return (
     <div className="buscar_page">
       <div id="login">
-        <form class="buscar-container">
-          <div class="buscar-header">
+        <form className="buscar-container">
+          <div className="buscar-header">
             <h2>BUSQUE SEU PET</h2>
           </div>
-          <div  class="buscar-content">
-            <div class="buscar-content-area">
+          <div  className="buscar-content">
+            <div className="buscar-content-area">
 
               <p  className="Genero" >Gênero</p>
               <select onChange={handleChange} name="genero">
@@ -117,13 +117,14 @@ const Buscar = () => {
                 <option value="Cego">Cego</option>
                 <option value="Outro">Outro</option>
               </select>
-
              
              <label>Acessorio</label>
               <input  type="string" onChange={handleChange} name="acessorio"/>
 
-              <button onClick={submeter} class="aplicar">Buscar</button>
             </div>
+          </div>
+          <div className='buscar-aplicar'>
+          <button onClick={submeter} className="aplicar">Buscar</button>
           </div>
         </form>
       </div>
