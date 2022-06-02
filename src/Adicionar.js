@@ -45,7 +45,7 @@ const Adicionar = () => {
 
   useEffect(() => {
     if (id != null) {
-      myaxios.put('http://localhost:8080/' + id).then(res => {
+      myaxios.put('http://localhost:38000/' + id).then(res => {
         dispatch({
           type: 'INICIALIZA_CAMPOS',
           state: res.data
@@ -55,7 +55,7 @@ const Adicionar = () => {
   }, [])
 
   const submitForm = e => {
-    let url = 'http://localhost:8080/auth/register/cadastrapet'
+    let url = 'http://localhost:38000/animaldomestico'
     e.preventDefault()
     console.log(formState)
 
@@ -74,52 +74,52 @@ const Adicionar = () => {
     }
   }
 
+  function favTutorial() {
+    let mylist = document.getElementById("myList");
+    document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
+    }
+
   return (
     <div className="adicionar_page">
       <div id="login">
-        <form class="adicionar-container">
-          <div class="adicionar-header">
+        <form className="adicionar-container">
+          <div className="adicionar-header">
             <h2>CADASTRE UM PET</h2>
           </div>
-          <div class="adicionar-content">
-            <div class="adicionar-content-area">
-              <label for="tipoUsuario">Tipo de Usuario</label>
-              <input
-                type="string"
-                onChange={handleChange}
-                id="tipoUsuario"
-                name="tipoUsuario"
-                placeholder="ex: perdeu ou encontrou"
-                value={formState.tipoUsuario}
-              />
-              <label for="genero">Gênero</label>
-              <input
-                type="string"
-                onChange={handleChange}
-                id="genero"
-                name="genero"
-                placeholder="ex: macho ou fêmea"
-                value={formState.genero}
-              />
-              <label for="porte">Porte</label>
-              <input
-                type="string"
-                onChange={handleChange}
-                id="porte"
-                name="porte"
-                placeholder="ex: pequeno, medio ou grande"
-                value={formState.porte}
-              />
-              <label for="cor">Cor</label>
-              <input
-                type="string"
-                onChange={handleChange}
-                id="cor"
-                name="cor"
-                placeholder="ex: marrom"
-                value={formState.cor}
-              />
-              <label for="acessorio">Acessorio</label>
+          <div className="adicionar-content">
+            <div className="adicionar-content-area">
+              <label htmlFor="tipoUsuario">Tipo de Usuario</label>
+              <select id = "myList" onchange = "favTutorial()" >
+                <option value="Dono"> Dono</option>
+                <option value="Localizador"> Localizador </option>
+                </select>
+              <label htmlFor="genero">Gênero</label>
+              <select id = "genero" onchange = "favTutorial()" >
+                <option> Macho </option>
+                <option> Femea </option>
+                </select>
+              <label htmlFor="porte">Porte</label>
+              <select id = "myList" onchange = "favTutorial()" >
+                <option> Pequeno </option>
+                <option> Medio </option>
+                <option> Grande </option>
+                </select>
+              <label htmlFor="cor">Cor</label>
+              <select id = "myList" onchange = "favTutorial()" >
+                <option> Preto</option>
+                <option> Branco </option>
+                <option> Laranja </option>
+                <option> Caramelo </option>
+                <option> Cinza </option>
+                <option> Marrom </option>
+                <option> Listrado </option>
+                <option> Frajola </option>
+                <option> Tigrado </option>
+                <option> Pardo </option>
+                <option> Bege </option>
+                <option> Creme </option>
+                </select>
+              <label htmlFor="acessorio">Acessorio</label>
               <input
                 type="string"
                 onChange={handleChange}
@@ -130,25 +130,29 @@ const Adicionar = () => {
               />
             </div>
             <div className="adicionar-content-area">
-              <label for="especie">Especie</label>
-              <input
-                type="string"
-                onChange={handleChange}
-                id="especie"
-                name="especie"
-                placeholder="ex: cachorro"
-                value={formState.especie}
-              />
-              <label for="condição">Condição</label>
-              <input
-                type="string"
-                onChange={handleChange}
-                id="condição"
-                name="condição"
-                placeholder="ex: pata enfaixada"
-                value={formState.condição}
-              />
-              <label for="localização">Localização</label>
+              <label htmlFor="especie">Especie</label>
+              <select id = "myList" onchange = "favTutorial()" >
+                <option> Papagaio </option>
+                <option> Hamster </option>
+                <option> Rato </option>
+                <option> Cavalo </option>
+                <option> Calopsita </option>
+                <option> Cachorro </option>
+                <option> Gato </option>
+                <option> Coelho </option>
+                <option> Porco </option>
+                <option> Cobra</option>
+                </select>
+              <label htmlFor="condição">Condição</label>
+              <select id = "myList" onchange = "favTutorial()" >
+                <option> Prenha </option>
+                <option> Machucado </option>
+                <option> Aleijado </option>
+                <option> Cego </option>
+                <option> Nenhum </option>
+                <option> Outro </option>
+                </select>
+              <label htmlFor="localização">Localização</label>
               <input
                 type="string"
                 onChange={handleChange}
@@ -157,7 +161,7 @@ const Adicionar = () => {
                 placeholder="ex: Rua Pedro Villo"
                 value={formState.localização}
               />
-              <label for="animalImage">Adicione Foto do Pet</label>
+              <label htmlFor="animalImage">Adicione Foto do Pet</label>
               <input
                 type="file"
                 onChange={handleImageChange}
@@ -166,7 +170,7 @@ const Adicionar = () => {
                 id="animalImage"
                 aria-describedby="helpId"
               />
-              <button class="cadastrar">Cadastrar</button>
+              <button className="cadastrar">Cadastrar</button>
             </div>
           </div>
         </form>
