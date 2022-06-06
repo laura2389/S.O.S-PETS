@@ -1,9 +1,12 @@
 import React, { useState, useReducer, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate  } from 'react-router-dom'
 import myaxios from './myaxios'
 import './style/Cadastro.css'
 
 const formReducer = (state, action) => {
+
+  
+
   switch (action.type) {
       case 'ATUALIZA':
           return {
@@ -16,7 +19,8 @@ const formReducer = (state, action) => {
 }
 
 const Cadastro = () => {
-  const initialState =  { email: "", nome: "", senha: "" }
+  const navigate = useNavigate();
+  const initialState =  { email: "", nome: "", password: "" }
   const [formState, dispatch] = useReducer(formReducer, initialState)
   const [file, setfile] = useState(initialState)
 
@@ -27,34 +31,17 @@ const Cadastro = () => {
       value: e.target.value
     })
   }
-  const { id } = useParams()
 
-  useEffect(() => {
-    if (id != null) {
-      myaxios.put(id).then(res => {
-        dispatch({
-          type: 'INICIALIZA_CAMPOS',
-          state: res.data
-        })
-      })
-    }
-  }, [])
-
-  const SubmitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault()
-    const  { email, nome, senha } = formState;
-    if (id != null) {
-      myaxios
-        .put(`auth/register/${id}`, { email, nome, senha }).then(r => {
-          localStorage.setItem("token", r.data)})
-
-    } else {
-     
-      myaxios
-        .post('auth/register',  { email, nome, senha }).then(r => {
-          localStorage.setItem("token", r.data)})
-          console.log({ email, nome, senha })
-    }
+    const  { email, nome, password } = formState;
+   
+      const resposta = await myaxios
+        .post('/auth/register',  { email, password });
+        localStorage.setItem("token", resposta)
+          navigate("/login")
+          console.log({ email, nome, password })
+    
   }
 
   return (
@@ -85,14 +72,14 @@ const Cadastro = () => {
             />
           </div>
           <div className="cadastro-area">
-            <label htmlFor="senha">Senha</label>
+            <label htmlFor="password">password</label>
             <input
               type="password"
               onChange={handleChange}
-              id="senha"
-              name="senha"
-              placeholder="Crie uma senha"
-              value={formState.senha}
+              id="password"
+              name="password"
+              placeholder="Crie uma password"
+              value={formState.password}
             />
             <p>
               Ao criar uma conta, você concorda com os Termos e Condições Uso da
@@ -102,7 +89,7 @@ const Cadastro = () => {
           </div>
         </div>
         <div className="footer_cadastro">
-          <button type="submit" onClick={SubmitForm} className="login__submit">
+          <button type="submit" onClick={submitForm} className="login__submit">
             Cadastrar
           </button>
         </div>

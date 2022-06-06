@@ -1,8 +1,9 @@
 import React, { useState, useReducer, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './style/Login.css'
 import { reduxLogin } from './actions'
 import myaxios from './myaxios'
+import ClipLoader from "react-spinners/ClipLoader";
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -19,8 +20,10 @@ const formReducer = (state, action) => {
 }
 
 const Login = () => {
-  const initialState =  { email: "", senha: "" }
+  const navigate = useNavigate();
+  const initialState =  { email: "", password: "" }
   const [formState, dispatch] = useReducer(formReducer, initialState)
+  const [loading, setLoading] = useState(false)
 
   const handleChange = e => {
     dispatch({
@@ -30,21 +33,32 @@ const Login = () => {
     })
   }
 
-  const { id } = useParams()
+  const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
 
-  const { email, senha } = formState;
 
-  useEffect(() => {
-    if (id != null) {
-      myaxios.post("/usuario", {email, senha}).then(r => {
-        localStorage.setItem("token", r.data)
-      })
-      console.log({email, senha})
-    }
-  }, [])
+
+  const submitForm = async (e) => {
+    e.preventDefault()
+    
+   console.log(formState)
+      const resposta = await myaxios
+        .post('/auth/login',  formState );
+        console.log(resposta.data.token)
+        localStorage.setItem("token", resposta.data.token)
+        setLoading(true);
+        await waitFor(1500);
+        setLoading(false)
+        navigate("/");
+       
+    
+  }
+
+
 
   return (
+   
     <div className="login_page">
+       {!loading  ? 
       <form className="form">
         <div className="header_login">
           <h2>Login</h2>
@@ -66,18 +80,21 @@ const Login = () => {
             <input
               type="password"
               onChange={handleChange}
-              name="senha"
-              id="senha"
+              name="password"
+              id="password"
               placeholder="Digite sua senha"
-              value={formState.senha}
+              value={formState.password}
             />
           </div>
         </div>
         <div className="footer">
-          <button className="login">Entrar</button>
+          <button onClick={submitForm} className="login">Entrar</button>
         </div>
       </form>
+       : <ClipLoader color={"blue"} loading={loading}  size={150} />
+      }
     </div>
+ 
   )
 }
 
