@@ -1,9 +1,7 @@
 import React, { useState, useReducer } from 'react'
 import './style/Buscar.css'
 import myaxios from './myaxios'
-
-
-
+ 
 const formReducer = (state, action) => {
   switch(action.type){
     case 'ATUALIZA':
@@ -17,7 +15,7 @@ const formReducer = (state, action) => {
       return state;
   }
 }
-
+ 
 const Buscar = () => {
   const initialState = { especie: "", genero: "", porte: "",  cor: "",  acessorio: "", condicaoAnimal: "" }
   const [formState, dispatch] = useReducer(formReducer, initialState);
@@ -26,7 +24,7 @@ const Buscar = () => {
   const pegaValor =(e) => {
     console.log(e.target.value);
   } 
-
+ 
   const handleChange = (e) => {
     dispatch({
       type: 'ATUALIZA',
@@ -34,8 +32,8 @@ const Buscar = () => {
       value: e.target.value
     }) 
 }
-
-
+ 
+ 
   const submeter = (e) => {
     e.preventDefault();
     const  { especie,  genero, porte,  cor,  acessorio, condicaoAnimal} = formState
@@ -43,8 +41,8 @@ const Buscar = () => {
     const u = new URLSearchParams(formState).toString();
     myaxios.get("/animaldomestico/query?" + u)
   }
-
-
+ 
+ 
   return (
     <div className="buscar_page">
       <div id="login">
@@ -54,14 +52,14 @@ const Buscar = () => {
           </div>
           <div  className="buscar-content">
             <div className="buscar-content-area">
-
+ 
               <p  className="Genero" >Gênero</p>
               <select onChange={handleChange} name="genero">
               <option disabled selected value>  Escolha uma opção  </option>
                 <option value="Macho">Macho</option>
                 <option value="Femea">Fêmea</option>
               </select>
-
+ 
               <label >Porte</label>
               <select onChange={handleChange} name="porte">
               <option disabled selected value>  Escolha uma opção  </option>
@@ -69,7 +67,7 @@ const Buscar = () => {
                 <option value="Medio">Medio</option>
                 <option value="Grande">Grande</option>
               </select>
-
+ 
               <label>Cor</label>
               <select onChange={handleChange} name="cor">
                 <option disabled selected value>  Escolha uma opção  </option>
@@ -87,10 +85,10 @@ const Buscar = () => {
                 <option value="Creme">Creme</option>
                 <option value="Dourado">Dourado</option>
               </select>
-
+ 
              
             </div>
-
+ 
             <div className="buscar-content-area">
               <label>Especie</label>
               <select onChange={handleChange} name="especie">
@@ -106,7 +104,7 @@ const Buscar = () => {
                 <option value="Porco">Porco</option>
                 <option value="Cobra">Cobra</option>
               </select>
-
+ 
               <label>Condição do Animal</label>
               <select onChange={handleChange} name="condicaoAnimal">
               <option disabled selected value>  Escolha uma opção  </option>
@@ -120,7 +118,7 @@ const Buscar = () => {
              
              <label>Acessorio</label>
               <input  type="string" onChange={handleChange} name="acessorio"/>
-
+ 
             </div>
           </div>
           <div className='buscar-aplicar'>
@@ -131,5 +129,5 @@ const Buscar = () => {
     </div>
   )
 }
-
+ 
 export default Buscar

@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from 'react'
+<!--import React, { useState, useReducer, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import myaxios from './myaxios'
 import './style/Adicionar.css'
@@ -26,8 +26,8 @@ const Adicionar = () => {
     localização: '',
     animalImage: ''
  }
- const [formState, dispatch] = useReducer(formReducer, initialState)
- const [file, setfile] = useState(initialState)
+  const [formState, dispatch] = useReducer(formReducer, initialState)
+  const [file, setfile] = useState(initialState)
 
   const handleChange = (e) => {
     dispatch({
@@ -37,10 +37,6 @@ const Adicionar = () => {
     })
   }
   const { id } = useParams()
-
-  const handleImageChange = (e) => {
-    setfile(e.target.files[0])
-  }
 
   useEffect(() => {
     if (id != null) {
@@ -53,12 +49,23 @@ const Adicionar = () => {
     }
   }, [])
 
-  const petRegister = async (e) => {
+  const SubmitForm = (e) => {
     e.preventDefault()
-    const  { tipoUsuario, genero, porte, cor, acessorio, especie, condição, localização, animalImage } = formState;
-    const resposta = await myaxios
-        .post('/animaldomestico',  { tipoUsuario, genero, porte, cor, acessorio, especie, condição, localização, animalImage });
-          console.log({ tipoUsuario, genero, porte, cor, acessorio, especie, condição, localização, animalImage })
+    const  { email, nome, senha } = formState;
+    if (id != null) {
+      myaxios
+        .put(`/cadastra-pet/${id}`, { tipoUsuario, genero, porte, cor, acessorio, especie, condição,
+        localização, animalImage}).then(r => {
+          localStorage.setItem("token", r.data)})
+    } else {
+     
+      myaxios
+        .post('/cadastra-pet',  { tipoUsuario, genero, porte, cor, acessorio, especie, condição,
+          localização, animalImage }).then(r => {
+          localStorage.setItem("token", r.data)})
+          console.log({ tipoUsuario, genero, porte, cor, acessorio, especie, condição,
+            localização, animalImage })
+    }
   }
 
   return (
@@ -158,7 +165,7 @@ const Adicionar = () => {
                 id="animalImage"
                 aria-describedby="helpId"
               />
-              <button onClick={petRegister} className="cadastrar">Cadastrar</button>
+              <button onClick={submeter} className="cadastrar">Cadastrar</button>
             </div>
           </div>
         </form>
@@ -168,3 +175,5 @@ const Adicionar = () => {
 }
 
 export default Adicionar
+
+-->

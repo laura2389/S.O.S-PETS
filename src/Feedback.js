@@ -1,7 +1,44 @@
-import React from 'react'
+import React, {useState, useReducer, useEffect} from 'react'
 import './style/Feedback.css'
-
+import { useParams } from 'react-router'
+import myaxios from './myaxios'
+ 
+ 
+ 
+const fnReducer = (state, action) => {
+    switch(action.type){
+      case "ATUALIZA":
+        return {...state, [action.name]: action.value} 
+        
+      case "CARREGA":
+        return action.state; 
+        
+      default:
+        return state;  
+    }
+}
+ 
+ 
 const Feedback = () => {
+ 
+    const initialState = {  feedback: ""}
+    const [formState, dispatch] = useReducer(fnReducer, initialState)
+    const {id} = useParams();
+    const atualizaForm = (e) => {
+      dispatch({
+        type: "ATUALIZA",
+        name: e.target.name,
+        value: e.target.value
+      })
+    }
+ 
+    const salvaOuAtualiza = (e) => {
+  
+      e.preventDefault();
+        myaxios.post("/feedback/", formState
+        ).then(r => r.data())
+    }
+ 
   return (
     <div className="feedback_page">
       <div id="login">
@@ -11,18 +48,15 @@ const Feedback = () => {
           </div>
           <div class="feedback-content">
             <div class="feedback-content-area">
-              <p className="radio-feedbak">
-                1. O serviço que você utilizou foi útil para você hoje?
-              </p>
-              <input className='input' type="radio" name="avaliacao" value="sim"/> Sim
-              <input className='input' type="radio" name="avaliacao" value="nao"/> Não
               <br />
               <label className="experince-feedback">
-                2. O que podemos fazer para melhorar sua experiência?
+                 O que podemos fazer para melhorar <br />sua experiência?
               </label>
-              <input className="input-feedback" type="string" />
+              <input className="input-feedback" type="string" name="feedback" onChange={atualizaForm} value={formState.feedback}/>
+               <br />
+               <label id="label2">Obrigado por usar nosso serviço!</label>
               <div className='enviar'>
-              <button class="enviar-feedback">Enviar</button>
+              <button onClick={salvaOuAtualiza} class="enviar-feedback">Enviar</button>
               </div>
             </div>
           </div>
@@ -31,5 +65,6 @@ const Feedback = () => {
     </div>
   )
 }
-
+ 
 export default Feedback
+ 

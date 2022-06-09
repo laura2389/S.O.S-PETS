@@ -4,9 +4,6 @@ import myaxios from './myaxios'
 import './style/Cadastro.css'
 
 const formReducer = (state, action) => {
-
-  
-
   switch (action.type) {
       case 'ATUALIZA':
           return {
@@ -35,13 +32,11 @@ const Cadastro = () => {
   const submitForm = async (e) => {
     e.preventDefault()
     const  { email, nome, password } = formState;
-   
       const resposta = await myaxios
         .post('/auth/register',  { email, password });
         localStorage.setItem("token", resposta)
           navigate("/login")
           console.log({ email, nome, password })
-    
   }
 
   return (
