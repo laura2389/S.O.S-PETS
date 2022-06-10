@@ -48,12 +48,11 @@ const Feedback = () => {
           </div>
           <div class="feedback-content">
             <div class="feedback-content-area">
-              <br />
               <label className="experince-feedback">
                  O que podemos fazer para melhorar <br />sua experiência?
               </label>
               <input className="input-feedback" type="string" name="feedback" onChange={atualizaForm} value={formState.feedback}/>
-               <br />
+               <br /><br />
                <label id="label2">Obrigado por usar nosso serviço!</label>
               <div className='enviar'>
               <button onClick={salvaOuAtualiza} class="enviar-feedback">Enviar</button>
