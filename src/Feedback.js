@@ -17,8 +17,7 @@ const fnReducer = (state, action) => {
 }
  
 const Feedback = () => {
- 
-    const initialState = {  feedback: ""}
+    const initialState = { feedback: ""}
     const [formState, dispatch] = useReducer(fnReducer, initialState)
     const {id} = useParams();
     const atualizaForm = (e) => {
@@ -30,21 +29,29 @@ const Feedback = () => {
     }
  
     const salvaOuAtualiza = (e) => {
-  
       e.preventDefault();
-        myaxios.post("/feedback/", formState
-        ).then(r => r.data())
+        console.log(formState)
+      if (id != null) {
+          myaxios.put("/feedback/", formState)
+              .then(res => alert("Sugestão enviada com sucesso"));
+
+      } else {
+          const formData = new FormData();
+          formData.append();
+          myaxios.post("/feedback", JSON.stringify(formState))
+              .then(res => alert("Sugestão enviada com sucesso"));
+      }
     }
  
   return (
     <div className="feedback_page">
       <div id="login">
-        <form class="feedback-container">
-          <div class="feedback-header">
+        <form className="feedback-container">
+          <div className="feedback-header">
             <h2>FEEDBACK</h2>
           </div>
-          <div class="feedback-content">
-            <div class="feedback-content-area">
+          <div className="feedback-content">
+            <div className="feedback-content-area">
               <label className="experince-feedback">
                  O que podemos fazer para melhorar <br />sua experiência?
               </label>
@@ -52,7 +59,7 @@ const Feedback = () => {
                <br /><br />
                <label id="label2">Obrigado por usar nosso serviço!</label>
               <div className='enviar'>
-              <button onClick={salvaOuAtualiza} class="enviar-feedback">Enviar</button>
+              <button onClick={salvaOuAtualiza} className="enviar-feedback">Enviar</button>
               </div>
             </div>
           </div>

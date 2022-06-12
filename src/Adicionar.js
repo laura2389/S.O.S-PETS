@@ -62,13 +62,13 @@ const Adicionar = () => {
         console.log(formState)
         if (id != null) {
             myaxios.put("/animaldomestico" + id, formState)
-                .then(res => alert("Dados enviados com sucesso"));
+                .then(res => alert("Pet cadastrado com sucesso"));
 
         } else {
             const formData = new FormData();
             formData.append();
             myaxios.post("/animaldomestico", JSON.stringify(formState))
-                .then(res => alert("Dados enviados com sucesso"));
+                .then(res => alert("Pet cadastrado com sucesso"));
         }
 
     }
