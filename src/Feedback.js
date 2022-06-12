@@ -3,7 +3,7 @@ import './style/Feedback.css'
 import { useParams } from 'react-router'
 import myaxios from './myaxios'
 
-const fnReducer = (state, action) => {
+const formReducer = (state, action) => {
   switch (action.type) {
     case 'ATUALIZA':
       return {
@@ -18,8 +18,8 @@ const fnReducer = (state, action) => {
 }
 
 const Feedback = () => {
-  const initialState = { feedback: '' }
-  const [formState, dispatch] = useReducer(fnReducer, initialState)
+  const initialState = { sujestao: '' }
+  const [formState, dispatch] = useReducer(formReducer, initialState)
   const atualizaForm = e => {
     dispatch({
       type: 'ATUALIZA',
@@ -42,19 +42,11 @@ const Feedback = () => {
   }, [])
 
   const salvaOuAtualiza = e => {
+    let url = "http://localhost:38000/feedback"
     e.preventDefault()
-    console.log(formState)
-    if (id != null) {
-      myaxios
-        .put('/feedback' + id, formState)
-        .then(res => alert('Sugestão enviada com sucesso'))
-    } else {
-      const formData = new FormData()
-      formData.append()
-      myaxios
-        .post('/feedback', JSON.stringify(formState))
-        .then(res => alert('Sugestão enviada com sucesso'))
-    }
+    const { sujestao } = formState
+    const respostaFeedback = myaxios.post(url, {sujestao}).then(res => alert("Feedback Enviado!"))
+    console.log({sujestao})
   }
 
   return (
@@ -70,12 +62,15 @@ const Feedback = () => {
                 O que podemos fazer para melhorar <br />
                 sua experiência?
               </label>
+              <label htmlFor="sujestao"></label>
               <input
-                className="input-feedback"
+              className="input-feedback"
                 type="string"
-                name="feedback"
                 onChange={atualizaForm}
-                value={formState.feedback}
+                id="sujestao"
+                name="sujestao"
+                placeholder="Seu Feedback:"
+                value={formState.sujestao}
               />
               <br />
               <br />

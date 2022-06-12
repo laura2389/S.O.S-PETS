@@ -25,9 +25,9 @@ const Adicionar = () => {
     cor: '',
     acessorio: '',
     especie: '',
-    condição: '',
-    localização: '',
-    animalImage: ''
+    condicaoAnimal: '',
+    localizacao: '',
+    fotoAnimal: ''
   }
   const [formState, dispatch] = useReducer(formReducer, initialState)
   const [file, setfile] = useState(initialState)
@@ -57,17 +57,20 @@ const Adicionar = () => {
   }, [])
 
   const petRegister = async e => {
+    let url = "http://localhost:38000/animaldomestico"
     e.preventDefault()
     console.log(formState)
     if (id != null) {
+      url += "/" + id;
       myaxios
-        .put('/animaldomestico' + id, formState)
+        .put(url, formState)
         .then(res => alert('Pet cadastrado com sucesso'))
     } else {
       const formData = new FormData()
-      formData.append()
+      formData.append("animalDomestico", JSON.stringify(formState));
+      formData.append("foto", file);
       myaxios
-        .post('/animaldomestico', JSON.stringify(formState))
+        .post(url + "/comFoto", formData)
         .then(res => alert('Pet cadastrado com sucesso'))
     }
   }
@@ -156,8 +159,8 @@ const Adicionar = () => {
                 <option value="Porco"> Porco </option>
                 <option value="Cobra"> Cobra</option>
               </select>
-              <label htmlFor="condição">Condição</label>
-              <select onChange={handleChange} name="condição">
+              <label htmlFor="condicaoAnimal">Condição</label>
+              <select onChange={handleChange} name="condicaoAnimal">
                 <option disabled selected value>
                   {' '}
                   Escolha uma opção{' '}
@@ -169,22 +172,22 @@ const Adicionar = () => {
                 <option value="Nenhum"> Nenhum </option>
                 <option value="Outro"> Outro </option>
               </select>
-              <label htmlFor="localização">Localização</label>
+              <label htmlFor="localizacao">Localização</label>
               <input
                 type="string"
                 onChange={handleChange}
-                id="localização"
-                name="localização"
+                id="localizacao"
+                name="localizacao"
                 placeholder="ex: Rua Pedro Villo"
                 value={formState.localização}
               />
-              <label htmlFor="animalImage">Adicione Foto do Pet</label>
+              <label htmlFor="fotoAnimal">Adicione Foto do Pet</label>
               <input
                 type="file"
                 onChange={handleImageChange}
                 className="form-control"
-                name="animalImage"
-                id="animalImage"
+                name="fotoAnimal"
+                id="fotoAnimal"
                 aria-describedby="helpId"
               />
               <button onClick={petRegister} className="cadastrar">
