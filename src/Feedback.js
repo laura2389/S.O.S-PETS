@@ -1,48 +1,62 @@
-import React, {useState, useReducer, useEffect} from 'react'
+import React, { useState, useReducer, useEffect } from 'react'
 import './style/Feedback.css'
 import { useParams } from 'react-router'
 import myaxios from './myaxios'
- 
+
 const fnReducer = (state, action) => {
-    switch(action.type){
-      case "ATUALIZA":
-        return {...state, [action.name]: action.value} 
-        
-      case "CARREGA":
-        return action.state; 
-        
-      default:
-        return state;  
-    }
+  switch (action.type) {
+    case 'ATUALIZA':
+      return {
+        ...state,
+        [action.name]: action.value
+      }
+    case 'INICIALIZA_CAMPOS':
+      return { ...action.state }
+    default:
+      return state
+  }
 }
- 
+
 const Feedback = () => {
-    const initialState = { feedback: ""}
-    const [formState, dispatch] = useReducer(fnReducer, initialState)
-    const {id} = useParams();
-    const atualizaForm = (e) => {
-      dispatch({
-        type: "ATUALIZA",
-        name: e.target.name,
-        value: e.target.value
+  const initialState = { feedback: '' }
+  const [formState, dispatch] = useReducer(fnReducer, initialState)
+  const atualizaForm = e => {
+    dispatch({
+      type: 'ATUALIZA',
+      name: e.target.name,
+      value: e.target.value
+    })
+  }
+
+  const { id } = useParams()
+
+  useEffect(() => {
+    if (id != null) {
+      myaxios.put('/feedback/' + id).then(res => {
+        dispatch({
+          type: 'INICIALIZA_CAMPOS',
+          state: res.data
+        })
       })
     }
- 
-    const salvaOuAtualiza = (e) => {
-      e.preventDefault();
-        console.log(formState)
-      if (id != null) {
-          myaxios.put("/feedback/", formState)
-              .then(res => alert("Sugestão enviada com sucesso"));
+  }, [])
 
-      } else {
-          const formData = new FormData();
-          formData.append();
-          myaxios.post("/feedback", JSON.stringify(formState))
-              .then(res => alert("Sugestão enviada com sucesso"));
-      }
+  const salvaOuAtualiza = e => {
+    e.preventDefault()
+    console.log(formState)
+    if (id != null) {
+      myaxios
+        .put('/feedback' + id, formState)
+        .then(res => alert('Sugestão enviada com sucesso'))
+    } else {
+      const formData = new FormData()
+      formData.append()
+      myaxios
+        .post('/feedback', JSON.stringify(formState))
+        .then(res => alert('Sugestão enviada com sucesso'))
     }
- 
+  }
+
   return (
     <div className="feedback_page">
       <div id="login">
@@ -53,13 +67,23 @@ const Feedback = () => {
           <div className="feedback-content">
             <div className="feedback-content-area">
               <label className="experince-feedback">
-                 O que podemos fazer para melhorar <br />sua experiência?
+                O que podemos fazer para melhorar <br />
+                sua experiência?
               </label>
-              <input className="input-feedback" type="string" name="feedback" onChange={atualizaForm} value={formState.feedback}/>
-               <br /><br />
-               <label id="label2">Obrigado por usar nosso serviço!</label>
-              <div className='enviar'>
-              <button onClick={salvaOuAtualiza} className="enviar-feedback">Enviar</button>
+              <input
+                className="input-feedback"
+                type="string"
+                name="feedback"
+                onChange={atualizaForm}
+                value={formState.feedback}
+              />
+              <br />
+              <br />
+              <label id="label2">Obrigado por usar nosso serviço!</label>
+              <div className="enviar">
+                <button onClick={salvaOuAtualiza} className="enviar-feedback">
+                  Enviar
+                </button>
               </div>
             </div>
           </div>
@@ -68,6 +92,5 @@ const Feedback = () => {
     </div>
   )
 }
- 
+
 export default Feedback
- 

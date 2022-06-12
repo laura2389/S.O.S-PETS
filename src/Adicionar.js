@@ -5,20 +5,21 @@ import './style/Adicionar.css'
 
 const formReducer = (state, action) => {
   switch (action.type) {
-      case 'ATUALIZA':
-          return {
-              ...state,
-              [action.name]: action.value
-          }
-        case 'INICIALIZA_CAMPOS':
-            return { ...action.state }
-        default:
-            return state;
+    case 'ATUALIZA':
+      return {
+        ...state,
+        [action.name]: action.value
+      }
+    case 'INICIALIZA_CAMPOS':
+      return { ...action.state }
+    default:
+      return state
   }
 }
 
 const Adicionar = () => {
-  const initialState =  { tipoUsuario: '',
+  const initialState = {
+    tipoUsuario: '',
     genero: '',
     porte: '',
     cor: '',
@@ -27,10 +28,10 @@ const Adicionar = () => {
     condição: '',
     localização: '',
     animalImage: ''
- }
- const [formState, dispatch] = useReducer(formReducer, initialState)
- const [file, setfile] = useState(initialState)
- const handleChange = (e) => {
+  }
+  const [formState, dispatch] = useReducer(formReducer, initialState)
+  const [file, setfile] = useState(initialState)
+  const handleChange = e => {
     dispatch({
       type: 'ATUALIZA',
       name: e.target.name,
@@ -38,40 +39,38 @@ const Adicionar = () => {
     })
   }
 
-  const { id } = useParams();
+  const { id } = useParams()
 
-  const handleImageChange = (e) => {
+  const handleImageChange = e => {
     setfile(e.target.files[0])
   }
 
   useEffect(() => {
     if (id != null) {
-        myaxios.put("/animaldomestico/" + id)
-
-            .then(res => {
-                dispatch({
-                    type: 'INICIALIZA_CAMPOS',
-                    state: res.data
-                })
-            })
+      myaxios.put('/animaldomestico/' + id).then(res => {
+        dispatch({
+          type: 'INICIALIZA_CAMPOS',
+          state: res.data
+        })
+      })
     }
-}, [])
+  }, [])
 
-  const petRegister = async (e) => {
-    e.preventDefault();
-        console.log(formState)
-        if (id != null) {
-            myaxios.put("/animaldomestico" + id, formState)
-                .then(res => alert("Pet cadastrado com sucesso"));
-
-        } else {
-            const formData = new FormData();
-            formData.append();
-            myaxios.post("/animaldomestico", JSON.stringify(formState))
-                .then(res => alert("Pet cadastrado com sucesso"));
-        }
-
+  const petRegister = async e => {
+    e.preventDefault()
+    console.log(formState)
+    if (id != null) {
+      myaxios
+        .put('/animaldomestico' + id, formState)
+        .then(res => alert('Pet cadastrado com sucesso'))
+    } else {
+      const formData = new FormData()
+      formData.append()
+      myaxios
+        .post('/animaldomestico', JSON.stringify(formState))
+        .then(res => alert('Pet cadastrado com sucesso'))
     }
+  }
 
   return (
     <div className="adicionar_page">
@@ -84,26 +83,38 @@ const Adicionar = () => {
             <div className="adicionar-content-area">
               <label htmlFor="tipoUsuario">Tipo de Usuario</label>
               <select onChange={handleChange} name="tipoUsuario">
-                <option disabled selected value>  Escolha uma opção  </option>
+                <option disabled selected value>
+                  {' '}
+                  Escolha uma opção{' '}
+                </option>
                 <option value="Dono"> Dono</option>
                 <option value="Localizador"> Localizador </option>
-                </select>
+              </select>
               <label htmlFor="genero">Gênero</label>
               <select onChange={handleChange} name="genero">
-                <option disabled selected value>  Escolha uma opção  </option>
+                <option disabled selected value>
+                  {' '}
+                  Escolha uma opção{' '}
+                </option>
                 <option value="Macho"> Macho </option>
                 <option value="Femea"> Femea </option>
-                </select>
+              </select>
               <label htmlFor="porte">Porte</label>
               <select onChange={handleChange} name="porte">
-                <option disabled selected value>  Escolha uma opção  </option>
+                <option disabled selected value>
+                  {' '}
+                  Escolha uma opção{' '}
+                </option>
                 <option value="Pequeno"> Pequeno </option>
                 <option value="Medio"> Medio </option>
                 <option value="Grande"> Grande </option>
-                </select>
+              </select>
               <label htmlFor="cor">Cor</label>
               <select onChange={handleChange} name="cor">
-                <option disabled selected value>  Escolha uma opção  </option>
+                <option disabled selected value>
+                  {' '}
+                  Escolha uma opção{' '}
+                </option>
                 <option value="Preto"> Preto</option>
                 <option value="Branco"> Branco </option>
                 <option value="Laranja"> Laranja </option>
@@ -116,7 +127,7 @@ const Adicionar = () => {
                 <option value="Pardo"> Pardo </option>
                 <option value="Bege"> Bege </option>
                 <option value="Creme"> Creme </option>
-                </select>
+              </select>
               <label htmlFor="acessorio">Acessorio</label>
               <input
                 type="string"
@@ -130,7 +141,10 @@ const Adicionar = () => {
             <div className="adicionar-content-area">
               <label htmlFor="especie">Especie</label>
               <select onChange={handleChange} name="especie">
-                <option disabled selected value>  Escolha uma opção  </option>
+                <option disabled selected value>
+                  {' '}
+                  Escolha uma opção{' '}
+                </option>
                 <option value="Papagaio"> Papagaio </option>
                 <option value="Hamster"> Hamster </option>
                 <option value="Rato"> Rato </option>
@@ -141,17 +155,20 @@ const Adicionar = () => {
                 <option value="Coelho"> Coelho </option>
                 <option value="Porco"> Porco </option>
                 <option value="Cobra"> Cobra</option>
-                </select>
+              </select>
               <label htmlFor="condição">Condição</label>
               <select onChange={handleChange} name="condição">
-                <option disabled selected value>  Escolha uma opção  </option>
+                <option disabled selected value>
+                  {' '}
+                  Escolha uma opção{' '}
+                </option>
                 <option value="Prenha"> Prenha </option>
                 <option value="Machucado"> Machucado </option>
                 <option value="Aleijado"> Aleijado </option>
                 <option value="Cego"> Cego </option>
                 <option value="Nenhum"> Nenhum </option>
                 <option value="Outro"> Outro </option>
-                </select>
+              </select>
               <label htmlFor="localização">Localização</label>
               <input
                 type="string"
@@ -170,7 +187,9 @@ const Adicionar = () => {
                 id="animalImage"
                 aria-describedby="helpId"
               />
-              <button onClick={petRegister} className="cadastrar">Cadastrar</button>
+              <button onClick={petRegister} className="cadastrar">
+                Cadastrar
+              </button>
             </div>
           </div>
         </form>
