@@ -3,8 +3,6 @@ import './style/Feedback.css'
 import { useParams } from 'react-router'
 import myaxios from './myaxios'
  
- 
- 
 const fnReducer = (state, action) => {
     switch(action.type){
       case "ATUALIZA":
@@ -17,7 +15,6 @@ const fnReducer = (state, action) => {
         return state;  
     }
 }
- 
  
 const Feedback = () => {
  

@@ -7,7 +7,7 @@ body{
 }
 
 .content{
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .card{
@@ -17,4 +17,12 @@ body{
 .contato{
     color: grey;
     font-size: 16px;
+}
+
+.row{
+    margin-top: 10px;
+}
+
+.title-listagem{
+    color: white;
 }

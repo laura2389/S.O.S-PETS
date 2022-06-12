@@ -1,27 +1,27 @@
-import React, { useState, useReducer, useEffect } from 'react'
-import { useNavigate  } from 'react-router-dom'
+import React, { useState, useReducer } from 'react'
+import { useNavigate } from 'react-router-dom'
 import myaxios from './myaxios'
 import './style/Cadastro.css'
 
 const formReducer = (state, action) => {
   switch (action.type) {
-      case 'ATUALIZA':
-          return {
-              ...state,
-              [action.name]: action.value
-          }
-      default:
-          return state;
+    case 'ATUALIZA':
+      return {
+        ...state,
+        [action.name]: action.value
+      }
+    default:
+      return state
   }
 }
 
 const Cadastro = () => {
-  const navigate = useNavigate();
-  const initialState =  { email: "", nome: "", password: "" }
+  const navigate = useNavigate()
+  const initialState = { email: '', nome: '', password: '' }
   const [formState, dispatch] = useReducer(formReducer, initialState)
   const [file, setfile] = useState(initialState)
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     dispatch({
       type: 'ATUALIZA',
       name: e.target.name,
@@ -29,14 +29,13 @@ const Cadastro = () => {
     })
   }
 
-  const submitForm = async (e) => {
+  const submitForm = async e => {
     e.preventDefault()
-    const  { email, nome, password } = formState;
-      const resposta = await myaxios
-        .post('/auth/register',  { email, password });
-        localStorage.setItem("token", resposta)
-          navigate("/login")
-          console.log({ email, nome, password })
+    const { email, nome, password } = formState
+    const resposta = await myaxios.post('/auth/register', { email, password })
+    localStorage.setItem('token', resposta)
+    navigate('/login')
+    console.log({ email, nome, password })
   }
 
   return (
@@ -47,7 +46,7 @@ const Cadastro = () => {
         </div>
         <div className="content_cadastro">
           <div className="cadastro-area">
-            <label  htmlFor="usuario">Email</label>
+            <label htmlFor="usuario">Email</label>
             <input
               type="text"
               onChange={handleChange}

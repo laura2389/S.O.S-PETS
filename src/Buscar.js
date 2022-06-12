@@ -21,7 +21,7 @@ const Buscar = () => {
   const [formState, dispatch] = useReducer(formReducer, initialState);
   const [file, setfile] = useState(initialState)
   const {especie,  genero, porte,  cor,  acessorio, condicaoAnimal} = formState
-  const pegaValor =(e) => {
+  const pegaValor = (e) => {
     console.log(e.target.value);
   } 
  
@@ -33,7 +33,6 @@ const Buscar = () => {
     }) 
 }
  
- 
   const submeter = (e) => {
     e.preventDefault();
     const  { especie,  genero, porte,  cor,  acessorio, condicaoAnimal} = formState
@@ -41,7 +40,6 @@ const Buscar = () => {
     const u = new URLSearchParams(formState).toString();
     myaxios.get("/animaldomestico/query?" + u)
   }
- 
  
   return (
     <div className="buscar_page">

@@ -10,8 +10,10 @@ const formReducer = (state, action) => {
               ...state,
               [action.name]: action.value
           }
-      default:
-          return state;
+        case 'INICIALIZA_CAMPOS':
+            return { ...action.state }
+        default:
+            return state;
   }
 }
 
@@ -28,15 +30,15 @@ const Adicionar = () => {
  }
  const [formState, dispatch] = useReducer(formReducer, initialState)
  const [file, setfile] = useState(initialState)
-
-  const handleChange = (e) => {
+ const handleChange = (e) => {
     dispatch({
       type: 'ATUALIZA',
       name: e.target.name,
       value: e.target.value
     })
   }
-  const { id } = useParams()
+
+  const { id } = useParams();
 
   const handleImageChange = (e) => {
     setfile(e.target.files[0])
@@ -44,22 +46,32 @@ const Adicionar = () => {
 
   useEffect(() => {
     if (id != null) {
-      myaxios.put(id).then(res => {
-        dispatch({
-          type: 'INICIALIZA_CAMPOS',
-          state: res.data
-        })
-      })
+        myaxios.put("/animaldomestico/" + id)
+
+            .then(res => {
+                dispatch({
+                    type: 'INICIALIZA_CAMPOS',
+                    state: res.data
+                })
+            })
     }
-  }, [])
+}, [])
 
   const petRegister = async (e) => {
-    e.preventDefault()
-    const  { tipoUsuario, genero, porte, cor, acessorio, especie, condição, localização, animalImage } = formState;
-    const resposta = await myaxios
-        .post('/animaldomestico',  { tipoUsuario, genero, porte, cor, acessorio, especie, condição, localização, animalImage });
-          console.log({ tipoUsuario, genero, porte, cor, acessorio, especie, condição, localização, animalImage })
-  }
+    e.preventDefault();
+        console.log(formState)
+        if (id != null) {
+            myaxios.put("/animaldomestico" + id, formState)
+                .then(res => alert("Dados enviados com sucesso"));
+
+        } else {
+            const formData = new FormData();
+            formData.append();
+            myaxios.post("/animaldomestico", JSON.stringify(formState))
+                .then(res => alert("Dados enviados com sucesso"));
+        }
+
+    }
 
   return (
     <div className="adicionar_page">
