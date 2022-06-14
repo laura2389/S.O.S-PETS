@@ -1,6 +1,8 @@
 import React, { useState, useReducer } from 'react'
 import './style/Buscar.css'
+import { useNavigate } from 'react-router-dom'
 import myaxios from './myaxios'
+import ClipLoader from "react-spinners/ClipLoader";
  
 const formReducer = (state, action) => {
   switch(action.type){
@@ -17,8 +19,10 @@ const formReducer = (state, action) => {
 }
  
 const Buscar = () => {
+  const navigate = useNavigate();
   const initialState = { especie: "", genero: "", porte: "",  cor: "",  acessorio: "", condicaoAnimal: "" }
   const [formState, dispatch] = useReducer(formReducer, initialState);
+  const [loading, setLoading] = useState(false)
   const [file, setfile] = useState(initialState)
   const {especie,  genero, porte,  cor,  acessorio, condicaoAnimal} = formState
   const pegaValor = (e) => {
@@ -33,16 +37,28 @@ const Buscar = () => {
     }) 
 }
  
-  const submeter = (e) => {
+const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
+  const submeter = async (e) => {
+    dispatch({
+      type: 'ATUALIZA',
+      name: e.target.name,
+      value: e.target.value
+    }) 
     e.preventDefault();
     const  { especie,  genero, porte,  cor,  acessorio, condicaoAnimal} = formState
     console.log( especie,  genero, porte,  cor,  acessorio, condicaoAnimal )
     const u = new URLSearchParams(formState).toString();
+    const resposta = await
     myaxios.get("/animaldomestico/query?" + u)
+    setLoading(true);
+    await waitFor(1500);
+    setLoading(false)
+    navigate("/buscar/animaldomestico");
   }
  
   return (
     <div className="buscar_page">
+      {!loading ?
       <div id="login">
         <form className="buscar-container">
           <div className="buscar-header">
@@ -124,6 +140,8 @@ const Buscar = () => {
           </div>
         </form>
       </div>
+      : <ClipLoader color={"blue"} loading={loading}  size={150} />
+      }
     </div>
   )
 }

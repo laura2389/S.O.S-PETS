@@ -10,6 +10,7 @@ import Perfil from './Perfil'
 import Login from './Login'
 import Cadastro from './Cadastro'
 import Listagem from './Listagem'
+import AnimalDomestico from './AnimalDomestico'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/buscar/listagem" element={<Listagem />} />
+          <Route path="/buscar/animaldomestico" element={<AnimalDomestico />} />
         </Routes>
         <Outlet />
       </main>

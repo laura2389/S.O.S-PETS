@@ -1,41 +1,53 @@
 import React, { useState, useEffect } from 'react'
 import myaxios from './myaxios'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-import Card from 'react-bootstrap/Card'
+import AnimalDomestico from './AnimalDomestico'
+import Pagination from 'react-bootstrap/Pagination'
 import './style/Listagem.css'
 
 const Listagem = () => {
+  const [animais, setanimais] = useState(null);
+  const [curPage, setCurPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+
+  const listaPet = () => {
+    myaxios.get(`/animais?page=${curPage}&pageSize=2`)
+    .then(response => {
+        setanimais(response.data.animais);
+        setTotalPages(response.data.totalPages)
+    });
+}
+
+useEffect(() => {
+  listaPet();
+}, [])
+
+let items = [];
+for (let number = 0; number < totalPages; number++) {
+  items.push(
+    <Pagination.Item onClick={() => {
+        setCurPage(number)
+        listaPet();
+    }} key={number} active={number === curPage}>
+      {number+1}
+    </Pagination.Item>,
+  );
+}
+
   return (
-    <div className="content">
-      <h2 className="title-listagem">Animais encontrados</h2>
-      <Row xs={1} md={3} className="g-4">
-        {Array.from({ length: 6 }).map((_, idx) => (
-          <Col>
-            <Card className="card">
-              <Card.Img
-                variant="top"
-                src="https://super.abril.com.br/wp-content/uploads/2018/05/filhotes-de-cachorro-alcanc3a7am-o-c3a1pice-de-fofura-com-8-semanas1.png"
-              />
-              <Card.Body>
-                <Card.Title>
-                  Usuário <a className="contato">(Telefone: 19 994849195)</a>
-                </Card.Title>
-                <Card.Text className="text">
-                  <ul>
-                    <li>Gênero</li>
-                    <li>Porte</li>
-                    <li>Cor</li>
-                    <li>Espécie</li>
-                    <li>Condição do animal</li>
-                    <li>Acessório</li>
-                  </ul>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
+    <div>
+      {animais != null ? animais.map(AnimalDomestico => (
+        <AnimalDomestico rm={AnimalDomestico.rm} 
+          genero={AnimalDomestico.genero} 
+          porte={AnimalDomestico.porte}
+          cor={AnimalDomestico.cor}
+          especie={AnimalDomestico.porte}
+          condicaoAnimal={AnimalDomestico.condicaoAnimal}
+          acessorio={AnimalDomestico.acessorio}
+          fotoAnimal={AnimalDomestico.fotoAnimal}  />
+        )) : "Nenhum animal encontrado" }
+        <Pagination>
+        {items}
+        </Pagination>
     </div>
   )
 }
