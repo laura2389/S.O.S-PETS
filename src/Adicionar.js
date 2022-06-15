@@ -57,7 +57,7 @@ const Adicionar = () => {
   }, [])
 
   const petRegister = async e => {
-    let url = "http://10.1.9.6:38000/animaldomestico"
+    let url = "http://localhost:38000/animaldomestico"
     e.preventDefault()
     console.log(formState)
     if (id != null) {

@@ -1,12 +1,18 @@
-import * as React from 'react'
+import React, {useState, useEffect} from 'react'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Fade from '@mui/material/Fade'
 import { FaUser } from 'react-icons/fa'
 import './style/Perfil.css'
+import Usuario from './Usuario'
+import Pagination from 'react-bootstrap/Pagination'
+import myaxios from './myaxios'
 
-export default function FadeMenu() {
+const Usuarios = () => {
+  const [usuarios, setusuarios] = useState(null);
+  const [curPage, setCurPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
   const handleClick = event => {
@@ -14,6 +20,32 @@ export default function FadeMenu() {
   }
   const handleClose = () => {
     setAnchorEl(null)
+  }
+
+
+  const baixaUsuarios = () => {
+    myaxios.get(`/usuario?page=${curPage}&pageSize=2`)
+    .then(response => {
+      setusuarios(response.data.usuarios);
+      setTotalPages(response.data.totalPages)
+      
+    })
+  }
+
+  useEffect(() => {
+    baixaUsuarios();
+  }, [])
+
+  let items = [];
+  for (let number = 0; number < totalPages; number++) {
+    items.push(
+      <Pagination.Item onClick={() => {
+          setCurPage(number)
+          baixaUsuarios();
+      }} key={number} active={number === curPage}>
+        {number+1}
+      </Pagination.Item>
+    );
   }
 
   return (
@@ -50,10 +82,23 @@ export default function FadeMenu() {
             ></img>
           </div>
         </p>
-        <p className='email-perfil'>renata@gmail.com</p>
-        <MenuItem onClick={handleClose}>Editar Perfil</MenuItem>
+
+        {usuarios != null ? usuarios.map(usuario => (
+          <Usuario 
+            email={usuario.email}
+            nome={usuario.nome} />
+        )) : "badawa" }
+        <Pagination>
+          {items}
+        </Pagination>
+
+
+        <MenuItem onClick={handleClose}>Editar Usuario</MenuItem>
         <MenuItem onClick={handleClose}>Sair</MenuItem>
       </Menu>
     </div>
   )
 }
+
+
+export default Usuarios

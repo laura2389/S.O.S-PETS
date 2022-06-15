@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import logosos from './img/logo_sos-pets2.png'
 import './style/Header.css'
 import { FaUser} from 'react-icons/fa';
-import Perfil from './Perfil';
+import Usuarios from './Usuarios'
 
 const Header = () => {
   return (
@@ -12,7 +12,7 @@ const Header = () => {
         <div className='navegacao'>
           <Link to={'sobre'}><a className="nav-link">SOBRE NÓS</a></Link>
           <Link to={'sujestao'}><a className="nav-link">FEEDBACK</a></Link>
-          <Perfil />
+          <Usuarios />
         </div>
     </nav>
   )

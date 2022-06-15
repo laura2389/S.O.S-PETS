@@ -6,11 +6,12 @@ import Sobre from './Sobre'
 import Feedback from './Feedback'
 import Adicionar from './Adicionar'
 import Buscar from './Buscar'
-import Perfil from './Perfil'
 import Login from './Login'
+import Usuario from './Usuario'
 import Cadastro from './Cadastro'
 import Listagem from './Listagem'
 import AnimalDomestico from './AnimalDomestico'
+import Usuarios from './Usuarios'
 
 const App = () => {
   return (
@@ -24,7 +25,7 @@ const App = () => {
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/sujestao" element={<Feedback />} />
           <Route path="/adicionar" element={<Adicionar />} />
-          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/usuarios" element={<Usuarios />} />
           <Route path="/buscar" element={<Buscar />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />

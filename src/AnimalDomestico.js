@@ -11,7 +11,7 @@
           <Col>
             <Card className="card">
         <Card.Img variant="top" 
-        src={"http://10.1.9.6:38000/fotoAnimal/" + props.fotoAnimal}  alt="Card image cap"/>
+        src={"http://localhost:38000/fotoAnimal/" + props.fotoAnimal}  alt="Card image cap"/>
               <Card.Body>
                 <Card.Title>{props.tipoUsuario} <a className="contato">{props.telefone}</a>
                 </Card.Title>
