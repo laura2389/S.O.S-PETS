@@ -11,6 +11,7 @@ import Login from './Login'
 import Cadastro from './Cadastro'
 import Listagem from './Listagem'
 import AnimalDomestico from './AnimalDomestico'
+import MeusPost from './MeusPost'
 
 const App = () => {
   return (
@@ -28,8 +29,10 @@ const App = () => {
           <Route path="/buscar" element={<Buscar />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/minhaspostagens" element={<MeusPost />} />
           <Route path="/buscar/listagem" element={<Listagem />} />
           <Route path="/buscar/animaldomestico" element={<AnimalDomestico />} />
+
         </Routes>
         <Outlet />
       </main>

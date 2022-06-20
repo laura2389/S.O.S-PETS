@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem'
 import Fade from '@mui/material/Fade'
 import { FaUser } from 'react-icons/fa'
 import './style/Perfil.css'
+import { Link } from 'react-router-dom'
 
 export default function FadeMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -39,18 +40,22 @@ export default function FadeMenu() {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <p className='foto-perfil'>
+        <p className="foto-perfil">
           {' '}
           <div className="foto_area">
             <img
-              src="https://avatars.dicebear.com/api/avataaars/23.svg"
+              src="https://avatars.dicebear.com/api/avataaars/cabelo.svg?r=45&scale=106&hairColor[]=black"
               alt=""
               height="44px"
               width="44px"
             ></img>
           </div>
         </p>
-        <p className='email-perfil'>renata@gmail.com</p>
+        <p className="email-perfil">daniel@gmail.com</p>
+        <p className="telefone">Telefone: (19) 94849195</p>
+        <Link className="postagens" to={'minhaspostagens'}>
+          <MenuItem>Minhas Postagens</MenuItem>
+        </Link>
         <MenuItem onClick={handleClose}>Editar Perfil</MenuItem>
         <MenuItem onClick={handleClose}>Sair</MenuItem>
       </Menu>
