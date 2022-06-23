@@ -1,49 +1,80 @@
 import React, { useState, useEffect } from 'react'
-import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
-import PropTypes from 'prop-types'
-import Pagination from 'react-bootstrap/Pagination'
+import CardGroup from 'react-bootstrap/CardGroup'
 
 const AnimalDomestico = props => {
   return (
     <div className="content">
       <h2 className="title-listagem">Animais encontrados</h2>
-      <Col>
-        <Card className="card">
+      <CardGroup>
+        <Card style={{ height: '490px' }}>
           <Card.Img
             variant="top"
-            src={'http://10.1.9.6:38000/fotoAnimal/' + props.fotoAnimal}
-            alt="Card image cap"
+            src="https://images.pexels.com/photos/59965/dog-young-dog-puppy-59965.jpeg?cs=srgb&dl=pexels-pixabay-59965.jpg&fm=jpg"
           />
           <Card.Body>
             <Card.Title>
-              {props.tipoUsuario} <a className="contato">{props.telefone}</a>
+              Localizador <a className="contato">(19) 993900278</a>
             </Card.Title>
             <Card.Text className="text">
               <ul>
-                <li>{props.genero}</li>
-                <li>{props.porte}</li>
-                <li>{props.cor}</li>
-                <li>{props.especie}</li>
-                <li>{props.condicaoAnimal}</li>
-                <li>{props.acessorio}</li>
+                <li>Macho</li>
+                <li>Pequeno</li>
+                <li>Preto</li>
+                <li>Cachorro</li>
+                <li>Nenhuma</li>
+                <li>Nenhum</li>
+                <li>Proximo ao Parque da Criança</li>
               </ul>
             </Card.Text>
           </Card.Body>
         </Card>
-      </Col>
-      <footer>
-        <Pagination>
-          <Pagination.First />
-          <Pagination.Prev />
-          <Pagination.Item>{1}</Pagination.Item>
-          <Pagination.Item>{2}</Pagination.Item>
-          <Pagination.Item>{3}</Pagination.Item>
-          <Pagination.Ellipsis />
-          <Pagination.Next />
-          <Pagination.Last />
-        </Pagination>
-      </footer>
+        <Card style={{ height: '570px' }}>
+          <Card.Img
+            style={{ height: '350px' }}
+            variant="top"
+            src="https://i.pinimg.com/564x/ed/14/d1/ed14d1939bf88bcfd7bfa2e5ead71329.jpg"
+          />
+          <Card.Body>
+            <Card.Title>
+              Dono <a className="contato">(19) 993900278</a>
+            </Card.Title>
+            <Card.Text className="text">
+              <ul>
+                <li>Macho</li>
+                <li>Pequeno</li>
+                <li>Preto</li>
+                <li>Cachorro</li>
+                <li>Nenhuma</li>
+                <li>Nenhum</li>
+                <li>Visto por ultimo ao Cristo Morada do Sol</li>
+              </ul>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card style={{ height: '570px' }}>
+          <Card.Img
+            variant="top"
+            src="https://i.pinimg.com/564x/12/ea/46/12ea463446914fef3c2cb074e6f9c5fe.jpg"
+          />
+          <Card.Body>
+            <Card.Title>
+              Localizador <a className="contato">(19) 99624050</a>
+            </Card.Title>
+            <Card.Text className="text">
+              <ul>
+                <li>Macho</li>
+                <li>Pequeno</li>
+                <li>Preto</li>
+                <li>Cachorro</li>
+                <li>Nenhuma</li>
+                <li>Nenhum</li>
+                <li>Proximo ao Parque Temático</li>
+              </ul>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </CardGroup>
     </div>
   )
 }
