@@ -17,7 +17,7 @@ const formReducer = (state, action) => {
 
 const Cadastro = () => {
   const navigate = useNavigate()
-  const initialState = { email: '', nome: '', password: '' }
+  const initialState = { email: '', nome: '', telefone: '', password: '' }
   const [formState, dispatch] = useReducer(formReducer, initialState)
   const [file, setfile] = useState(initialState)
 
@@ -62,6 +62,15 @@ const Cadastro = () => {
               name="nome"
               placeholder="Digite seu primeiro nome"
               value={formState.nome}
+            />
+            <label htmlFor="telefone">Telefone</label>
+            <input
+              type="text"
+              onChange={handleChange}
+              id="telefone"
+              name="telefone"
+              placeholder="Digite seu telefone"
+              value={formState.telefone}
             />
           </div>
           <div className="cadastro-area">
