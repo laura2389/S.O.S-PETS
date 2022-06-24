@@ -20,11 +20,11 @@ const formReducer = (state, action) => {
  
 const Buscar = () => {
   const navigate = useNavigate();
-  const initialState = { especie: "", genero: "", porte: "",  cor: "",  acessorio: "", condicaoAnimal: "" }
+  const initialState = { porte: "", especie: "", cor: "",  acessorio: "",  condicaoAnimal: "", genero: "" }
   const [formState, dispatch] = useReducer(formReducer, initialState);
   const [loading, setLoading] = useState(false)
   const [file, setfile] = useState(initialState)
-  const {especie,  genero, porte,  cor,  acessorio, condicaoAnimal} = formState
+  const {porte, especie, cor, acessorio, condicaoAnimal, genero} = formState
   const pegaValor = (e) => {
     console.log(e.target.value);
   } 
@@ -45,8 +45,8 @@ const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
       value: e.target.value
     }) 
     e.preventDefault();
-    const  { especie,  genero, porte,  cor,  acessorio, condicaoAnimal} = formState
-    console.log( especie,  genero, porte,  cor,  acessorio, condicaoAnimal )
+    const  { porte, especie, cor, acessorio, condicaoAnimal, genero} = formState
+    console.log( porte, especie, cor, acessorio, condicaoAnimal, genero )
     const u = new URLSearchParams(formState).toString();
     const resposta = await
     myaxios.get("/animaldomestico/query?" + u)
