@@ -23,12 +23,11 @@ const FadeMenu = () => {
 
   const getPerfil = async e => {
     const myUser = await myaxios.get('/usuario/usuario/own')
-    setUser (myUser.data)
-
+    setUser(myUser.data)
   }
 
-  React.useEffect( () => {
-    getPerfil();
+  React.useEffect(() => {
+    getPerfil()
   }, [])
 
   return (
@@ -40,7 +39,7 @@ const FadeMenu = () => {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        <h4>
+        <h4 className="perfil">
           <FaUser />
         </h4>
       </Button>
@@ -65,8 +64,8 @@ const FadeMenu = () => {
             ></img>
           </div>
         </p>
-        <p className="email-perfil">{user != null ? user.user.email: ""}</p>
-        <p className="telefone">{user != null ? user.user.telefone: ""}</p>
+        <p className="email-perfil">{user != null ? user.user.email : ''}</p>
+        <p className="telefone">{user != null ? user.user.telefone : ''}</p>
         <Link className="postagens" to={'minhaspostagens'}>
           <MenuItem>Minhas Postagens</MenuItem>
         </Link>
