@@ -9,13 +9,11 @@
     <div className="content">
       <h2 className="title-listagem">Animais encontrados</h2>
           <Col>
-            <Card className="card">
-        <Card.Img variant="top" 
-        src={"/fotoAnimal/" + props.fotoAnimal}  alt="Card image cap"/>
-              <Card.Body>
-                <Card.Title>{props.tipoUsuario} <a className="contato">{}</a>
-                </Card.Title>
-                <Card.Text className="text">
+            <div className="card">
+            <img style={{width: 150}} className="card-img-top" src={`${process.env.REACT_APP_HOST || "http://localhost:38000"}/fotoAnimal/${props.fotoAnimal}`}  alt="Card image cap"/>
+            <div className="card-body">
+            <h4 className="card-title">{props.tipoUsuario}</h4> <h3 className="contato">{}</h3>
+                <div className="text">
                   <ul>
                     <li>{props.genero}</li>
                     <li>{props.porte}</li>
@@ -24,9 +22,9 @@
                     <li>{props.condicaoAnimal}</li>
                     <li>{props.acessorio}</li>
                   </ul>
-                </Card.Text>
-              </Card.Body>
-            </Card>
+                </div>
+              </div>
+            </div>
           </Col>
           </div>
   )

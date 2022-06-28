@@ -6,9 +6,13 @@ import Fade from '@mui/material/Fade'
 import { FaUser } from 'react-icons/fa'
 import './style/Perfil.css'
 import { Link } from 'react-router-dom'
+import propTypes from 'prop-types'
+import myaxios from './myaxios'
+import { async } from 'q'
 
-export default function FadeMenu() {
+const FadeMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState(null)
+  const [user, setUser] = React.useState(null)
   const open = Boolean(anchorEl)
   const handleClick = event => {
     setAnchorEl(event.currentTarget)
@@ -16,6 +20,16 @@ export default function FadeMenu() {
   const handleClose = () => {
     setAnchorEl(null)
   }
+
+  const getPerfil = async e => {
+    const myUser = await myaxios.get('/usuario/usuario/own')
+    setUser (myUser.data)
+
+  }
+
+  React.useEffect( () => {
+    getPerfil();
+  }, [])
 
   return (
     <div>
@@ -51,14 +65,15 @@ export default function FadeMenu() {
             ></img>
           </div>
         </p>
-        <p className="email-perfil">daniel@gmail.com</p>
-        <p className="telefone">Telefone: (19) 94849195</p>
+        <p className="email-perfil">{user != null ? user.user.email: ""}</p>
+        <p className="telefone">{user != null ? user.user.telefone: ""}</p>
         <Link className="postagens" to={'minhaspostagens'}>
           <MenuItem>Minhas Postagens</MenuItem>
         </Link>
-        <MenuItem onClick={handleClose}>Editar Perfil</MenuItem>
         <MenuItem onClick={handleClose}>Sair</MenuItem>
       </Menu>
     </div>
   )
 }
+
+export default FadeMenu
