@@ -65,7 +65,6 @@ const FadeMenu = () => {
           </div>
         </p>
         <p className="email-perfil">{user != null ? user.user.email : ''}</p>
-        <p className="telefone">{user != null ? user.user.telefone : ''}</p>
         <Link className="postagens" to={'minhaspostagens'}>
           <MenuItem>Minhas Postagens</MenuItem>
         </Link>

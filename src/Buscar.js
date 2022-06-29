@@ -57,7 +57,7 @@ const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
   }
  
   return (
-    <div className="buscar_page">
+    <div className="buscar-page">
       {!loading ?
       <div id="login">
         <form className="buscar-container">
@@ -67,14 +67,14 @@ const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
           <div  className="buscar-content">
             <div className="buscar-content-area">
  
-              <p  className="Genero" >Gênero</p>
+              <p className="text-names" >Gênero</p>
               <select onChange={handleChange} name="genero">
               <option disabled selected value>  Escolha uma opção  </option>
                 <option value="Macho">Macho</option>
                 <option value="Femea">Fêmea</option>
               </select>
  
-              <label >Porte</label>
+              <p className="text-names">Porte</p>
               <select onChange={handleChange} name="porte">
               <option disabled selected value>  Escolha uma opção  </option>
                 <option value="Pequeno">Pequeno</option>
@@ -82,7 +82,7 @@ const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
                 <option value="Grande">Grande</option>
               </select>
  
-              <label>Cor</label>
+              <p className="text-names">Cor</p>
               <select onChange={handleChange} name="cor">
                 <option disabled selected value>  Escolha uma opção  </option>
                 <option value="Preto">Preto</option>
@@ -104,7 +104,7 @@ const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
             </div>
  
             <div className="buscar-content-area">
-              <label>Especie</label>
+            <p className="text-names">Espécie</p>
               <select onChange={handleChange} name="especie">
               <option disabled selected value>  Escolha uma opção  </option>
                 <option value="Cachorro">Cachorro</option>
@@ -119,7 +119,7 @@ const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
                 <option value="Cobra">Cobra</option>
               </select>
  
-              <label>Condição do Animal</label>
+              <p className="text-names">Condição do Animal</p>
               <select onChange={handleChange} name="condicaoAnimal">
               <option disabled selected value>  Escolha uma opção  </option>
                 <option value="Nenhum">Nenhum</option>
@@ -130,7 +130,7 @@ const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
                 <option value="Outro">Outro</option>
               </select>
              
-             <label>Acessorio</label>
+              <p className="text-names">Acessório</p>
               <input  type="string" onChange={handleChange} name="acessorio"/>
  
             </div>

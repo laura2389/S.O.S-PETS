@@ -84,7 +84,7 @@ const Adicionar = () => {
           </div>
           <div className="adicionar-content">
             <div className="adicionar-content-area">
-              <label htmlFor="tipoUsuario">Tipo de Usuario</label>
+              <label className="text-names" htmlFor="tipoUsuario">Tipo de Usuario</label>
               <select onChange={handleChange} name="tipoUsuario">
                 <option disabled selected value>
                   {' '}
@@ -93,7 +93,7 @@ const Adicionar = () => {
                 <option value="Dono"> Dono</option>
                 <option value="Localizador"> Localizador </option>
               </select>
-              <label htmlFor="genero">Gênero</label>
+              <label className="text-names" htmlFor="genero">Gênero</label>
               <select onChange={handleChange} name="genero">
                 <option disabled selected value>
                   {' '}
@@ -102,7 +102,7 @@ const Adicionar = () => {
                 <option value="Macho"> Macho </option>
                 <option value="Femea"> Femea </option>
               </select>
-              <label htmlFor="porte">Porte</label>
+              <label className="text-names" htmlFor="porte">Porte</label>
               <select onChange={handleChange} name="porte">
                 <option disabled selected value>
                   {' '}
@@ -112,7 +112,7 @@ const Adicionar = () => {
                 <option value="Medio"> Medio </option>
                 <option value="Grande"> Grande </option>
               </select>
-              <label htmlFor="cor">Cor</label>
+              <label className="text-names" htmlFor="cor">Cor</label>
               <select onChange={handleChange} name="cor">
                 <option disabled selected value>
                   {' '}
@@ -131,7 +131,7 @@ const Adicionar = () => {
                 <option value="Bege"> Bege </option>
                 <option value="Creme"> Creme </option>
               </select>
-              <label htmlFor="acessorio">Acessorio</label>
+              <label className="text-names" htmlFor="acessorio">Acessorio</label>
               <input
                 type="string"
                 onChange={handleChange}
@@ -142,7 +142,7 @@ const Adicionar = () => {
               />
             </div>
             <div className="adicionar-content-area">
-              <label htmlFor="especie">Especie</label>
+              <label className="text-names" htmlFor="especie">Especie</label>
               <select onChange={handleChange} name="especie">
                 <option disabled selected value>
                   {' '}
@@ -159,7 +159,7 @@ const Adicionar = () => {
                 <option value="Porco"> Porco </option>
                 <option value="Cobra"> Cobra</option>
               </select>
-              <label htmlFor="condicaoAnimal">Condição</label>
+              <label className="text-names" htmlFor="condicaoAnimal">Condição</label>
               <select onChange={handleChange} name="condicaoAnimal">
                 <option disabled selected value>
                   {' '}
@@ -172,7 +172,7 @@ const Adicionar = () => {
                 <option value="Nenhum"> Nenhum </option>
                 <option value="Outro"> Outro </option>
               </select>
-              <label htmlFor="localizacao">Localização</label>
+              <label className="text-names" htmlFor="localizacao">Localização</label>
               <input
                 type="string"
                 onChange={handleChange}
@@ -181,7 +181,7 @@ const Adicionar = () => {
                 placeholder="ex: Rua Pedro Villo"
                 value={formState.localização}
               />
-              <label htmlFor="fotoAnimal">Adicione Foto do Pet</label>
+              <label className="text-names" htmlFor="fotoAnimal">Adicione Foto do Pet</label>
               <input
                 type="file"
                 onChange={handleImageChange}

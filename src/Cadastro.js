@@ -59,7 +59,7 @@ const Cadastro = () => {
               onChange={handleChange}
               id="nome"
               name="nome"
-              placeholder="Digite seu primeiro nome"
+              placeholder="Digite seu nome"
               value={formState.nome}
             />
             <label htmlFor="telefone">Telefone</label>
@@ -79,7 +79,7 @@ const Cadastro = () => {
               onChange={handleChange}
               id="password"
               name="password"
-              placeholder="Crie uma password"
+              placeholder="Crie uma senha"
               value={formState.password}
             />
             <p>
