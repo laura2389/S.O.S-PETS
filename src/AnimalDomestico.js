@@ -1,37 +1,84 @@
+import React, { useState, useEffect } from 'react'
+import Card from 'react-bootstrap/Card'
+import CardGroup from 'react-bootstrap/CardGroup'
 
- import React, { useState, useEffect } from 'react'
- import Col from 'react-bootstrap/Col'
- import Card from 'react-bootstrap/Card'
- import PropTypes from 'prop-types'
- 
- const AnimalDomestico = props => {
- return (
+const AnimalDomestico = props => {
+  return (
     <div className="content">
-      <h2 className="title-listagem">Animais encontrados</h2>
-          <Col>
-            <div className="card">
-            <img style={{width: 150}} className="card-img-top" src={`${process.env.REACT_APP_HOST || "http://localhost:38000"}/fotoAnimal/${props.fotoAnimal}`}  alt="Card image cap"/>
-            <div className="card-body">
-            <h4 className="card-title">{props.tipoUsuario}</h4> <h3 className="contato">{}</h3>
-                <div className="text">
-                  <ul>
-                    <li>{props.genero}</li>
-                    <li>{props.porte}</li>
-                    <li>{props.cor}</li>
-                    <li>{props.especie}</li>
-                    <li>{props.condicaoAnimal}</li>
-                    <li>{props.acessorio}</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </Col>
-          </div>
+      <h2 className="title-listagem" style={{color: '#FD6D12'}}>Animais encontrados</h2>
+      <CardGroup>
+        <Card style={{ height: '600px' }}>
+          <Card.Img
+            style={{ height: '300px' }}
+            variant="top"
+            src="https://images.pexels.com/photos/59965/dog-young-dog-puppy-59965.jpeg?cs=srgb&dl=pexels-pixabay-59965.jpg&fm=jpg"
+          />
+          <Card.Body>
+            <Card.Title>
+              Localizador <a className="contato">(19) 993900278</a>
+            </Card.Title>
+            <Card.Text className="text">
+              <ul>
+                <li>Macho</li>
+                <li>Pequeno</li>
+                <li>Preto</li>
+                <li>Cachorro</li>
+                <li>Nenhuma</li>
+                <li>Nenhum</li>
+                <li>Proximo ao Parque da Criança</li>
+              </ul>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card style={{ height: '600px' }}>
+          <Card.Img
+            style={{ height: '300px' }}
+            variant="top"
+            src="https://i.pinimg.com/564x/ed/14/d1/ed14d1939bf88bcfd7bfa2e5ead71329.jpg"
+          />
+          <Card.Body>
+            <Card.Title>
+              Dono <a className="contato">(19) 993900278</a>
+            </Card.Title>
+            <Card.Text className="text">
+              <ul>
+                <li>Macho</li>
+                <li>Pequeno</li>
+                <li>Preto</li>
+                <li>Cachorro</li>
+                <li>Nenhuma</li>
+                <li>Nenhum</li>
+                <li>Visto por ultimo ao Cristo Morada do Sol</li>
+              </ul>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card style={{ height: '600px' }}>
+          <Card.Img
+            style={{ height: '300px' }}
+            variant="top"
+            src="https://i.pinimg.com/564x/12/ea/46/12ea463446914fef3c2cb074e6f9c5fe.jpg"
+          />
+          <Card.Body>
+            <Card.Title>
+              Localizador <a className="contato">(19) 99624050</a>
+            </Card.Title>
+            <Card.Text className="text">
+              <ul>
+                <li>Macho</li>
+                <li>Pequeno</li>
+                <li>Preto</li>
+                <li>Cachorro</li>
+                <li>Nenhuma</li>
+                <li>Nenhum</li>
+                <li>Proximo ao Parque Temático</li>
+              </ul>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </CardGroup>
+    </div>
   )
-}
-
-AnimalDomestico.propTypes = {
-
 }
 
 export default AnimalDomestico

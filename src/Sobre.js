@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import pets1 from './img/pets1.jpg'
-import pets2 from './img/pets2.jpg'
-import pets3 from './img/pets3.jpg'
+import pets1 from './img/foto_sobrenós_1.jpeg'
+import pets2 from './img/foto_sobrenós_2.jpeg'
+import pets3 from './img/foto_sobrenós_3.jpeg'
 import { FaInstagram } from 'react-icons/fa'
 import { FaFacebookSquare } from 'react-icons/fa'
 

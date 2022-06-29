@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import fotohome from './img/foto_home.png'
+import fotohome from './img/foto_tela_home.png'
 import './style/Home.css'
 import { FaArrowRight } from 'react-icons/fa'
 
@@ -40,7 +40,7 @@ const Home = () => {
           </Link>
         </p>
       </div>
-      <div className="foto_home">
+      <div className="foto_tela_home">
         <a className="img_home">
           <img src={fotohome}></img>
         </a>
