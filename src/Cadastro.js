@@ -1,30 +1,27 @@
-import React, { useState, useReducer, useEffect } from 'react'
-import { useNavigate  } from 'react-router-dom'
+import React, { useState, useReducer } from 'react'
+import { useNavigate } from 'react-router-dom'
 import myaxios from './myaxios'
 import './style/Cadastro.css'
 
 const formReducer = (state, action) => {
-
-  
-
   switch (action.type) {
-      case 'ATUALIZA':
-          return {
-              ...state,
-              [action.name]: action.value
-          }
-      default:
-          return state;
+    case 'ATUALIZA':
+      return {
+        ...state,
+        [action.name]: action.value
+      }
+    default:
+      return state
   }
 }
 
 const Cadastro = () => {
-  const navigate = useNavigate();
-  const initialState =  { email: "", nome: "", password: "" }
+  const navigate = useNavigate()
+  const initialState = { email: '', nome: '', telefone: '', password: '' }
   const [formState, dispatch] = useReducer(formReducer, initialState)
   const [file, setfile] = useState(initialState)
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     dispatch({
       type: 'ATUALIZA',
       name: e.target.name,
@@ -32,16 +29,11 @@ const Cadastro = () => {
     })
   }
 
-  const submitForm = async (e) => {
+  const submitForm = async e => {
     e.preventDefault()
-    const  { email, nome, password } = formState;
-   
-      const resposta = await myaxios
-        .post('/auth/register',  { email, password });
-        localStorage.setItem("token", resposta)
-          navigate("/login")
-          console.log({ email, nome, password })
-    
+    const { email, nome, telefone, password } = formState
+    const resposta = await myaxios.post('/auth/register', { email, password })
+    navigate('/login')
   }
 
   return (
@@ -52,7 +44,7 @@ const Cadastro = () => {
         </div>
         <div className="content_cadastro">
           <div className="cadastro-area">
-            <label  htmlFor="usuario">Email</label>
+            <label htmlFor="usuario">Email</label>
             <input
               type="text"
               onChange={handleChange}
@@ -67,8 +59,17 @@ const Cadastro = () => {
               onChange={handleChange}
               id="nome"
               name="nome"
-              placeholder="Digite seu primeiro nome"
+              placeholder="Digite seu nome"
               value={formState.nome}
+            />
+            <label htmlFor="telefone">Telefone</label>
+            <input
+              type="text"
+              onChange={handleChange}
+              id="telefone"
+              name="telefone"
+              placeholder="Digite seu telefone"
+              value={formState.telefone}
             />
           </div>
           <div className="cadastro-area">
@@ -78,7 +79,7 @@ const Cadastro = () => {
               onChange={handleChange}
               id="password"
               name="password"
-              placeholder="Crie uma password"
+              placeholder="Crie uma senha"
               value={formState.password}
             />
             <p>

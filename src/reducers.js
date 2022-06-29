@@ -1,5 +1,6 @@
 const initialState = {
-  loggedIn: false
+  loggedIn: false,
+  animaisDomesticos: []
 }
 
 export default function appReducer(state = initialState, action) {
@@ -8,6 +9,11 @@ export default function appReducer(state = initialState, action) {
       return {
         ...state,
         loggedIn: true
+      }
+      case 'query/animais':
+      return {
+        ...state,
+        animaisDomesticos: action.animaisDomesticos
       }
 
     default:

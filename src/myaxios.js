@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const HOST = process.env.REACT_APP_HOST || 'http://localhost:38000';
+
 const myaxios = axios.create({
-    baseURL: `http://localhost:38000`
+    baseURL: HOST
 })
 
 myaxios.interceptors.request.use((config) => {

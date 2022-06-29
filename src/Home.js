@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import fotohome from './img/foto_home.png'
+import fotohome from './img/foto_tela_home.png'
 import './style/Home.css'
 import { FaArrowRight } from 'react-icons/fa'
 
@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className="home_page">
       <h1>
-        BEM VINDO AO <a className="title">SOS PETS</a>
+        BEM VINDO AO <a className="title">S.O.S PETS</a>
       </h1>
       <h4>
         Aqui você encontra o seu animal perdido com mais<br />
@@ -40,7 +40,7 @@ const Home = () => {
           </Link>
         </p>
       </div>
-      <div className="foto_home">
+      <div className="foto_tela_home">
         <a className="img_home">
           <img src={fotohome}></img>
         </a>

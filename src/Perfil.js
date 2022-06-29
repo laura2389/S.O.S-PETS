@@ -5,9 +5,14 @@ import MenuItem from '@mui/material/MenuItem'
 import Fade from '@mui/material/Fade'
 import { FaUser } from 'react-icons/fa'
 import './style/Perfil.css'
+import { Link } from 'react-router-dom'
+import propTypes from 'prop-types'
+import myaxios from './myaxios'
+import { async } from 'q'
 
-export default function FadeMenu() {
+const FadeMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState(null)
+  const [user, setUser] = React.useState(null)
   const open = Boolean(anchorEl)
   const handleClick = event => {
     setAnchorEl(event.currentTarget)
@@ -15,6 +20,15 @@ export default function FadeMenu() {
   const handleClose = () => {
     setAnchorEl(null)
   }
+
+  const getPerfil = async e => {
+    const myUser = await myaxios.get('/usuario/usuario/own')
+    setUser(myUser.data)
+  }
+
+  React.useEffect(() => {
+    getPerfil()
+  }, [])
 
   return (
     <div>
@@ -25,7 +39,7 @@ export default function FadeMenu() {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        <h4>
+        <h4 className="perfil">
           <FaUser />
         </h4>
       </Button>
@@ -39,21 +53,25 @@ export default function FadeMenu() {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <p className='foto-perfil'>
+        <p className="foto-perfil">
           {' '}
           <div className="foto_area">
             <img
-              src="https://avatars.dicebear.com/api/avataaars/23.svg"
+              src="https://avatars.dicebear.com/api/avataaars/cabelo.svg?r=45&scale=106&hairColor[]=black"
               alt=""
               height="44px"
               width="44px"
             ></img>
           </div>
         </p>
-        <p className='email-perfil'>renata@gmail.com</p>
-        <MenuItem onClick={handleClose}>Editar Perfil</MenuItem>
+        <p className="email-perfil">{user != null ? user.user.email : ''}</p>
+        <Link className="postagens" to={'minhaspostagens'}>
+          <MenuItem>Minhas Postagens</MenuItem>
+        </Link>
         <MenuItem onClick={handleClose}>Sair</MenuItem>
       </Menu>
     </div>
   )
 }
+
+export default FadeMenu

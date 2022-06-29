@@ -7,12 +7,10 @@
 body {
   height: 100%;
 }
-
 header{
-  background-color:#FD6D12;
+  background-color:#0049A9;
   height: 70px;
   width: 100%;
-  
 }
 
 .cabecalho {
@@ -37,7 +35,7 @@ header{
 }
 
 .nav-link:hover{
-  background-color: #c85108;
+  background-color: #013880;
 }
 
 .foto_logo img{

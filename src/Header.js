@@ -11,7 +11,7 @@ const Header = () => {
       <Link to={'/'}><a className="foto_logo"><img src={logosos}></img></a></Link>
         <div className='navegacao'>
           <Link to={'sobre'}><a className="nav-link">SOBRE NÓS</a></Link>
-          <Link to={'feedback'}><a className="nav-link">FEEDBACK</a></Link>
+          <Link to={'sujestao'}><a className="nav-link">FEEDBACK</a></Link>
           <Perfil />
         </div>
     </nav>

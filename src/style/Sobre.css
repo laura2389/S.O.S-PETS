@@ -5,6 +5,7 @@
 
 .text-sobre{
   margin-top: 20px;
+  color: #0049A9;
   text-align: justify;
 }
 
@@ -21,12 +22,12 @@
 }
 
 .redes-redes{
-  display: flex;
+  text-align: center;
   flex-direction: row-reverse;
 }
 
 .redes{
-  margin-left: 20px;
+  color: #FD6D12;
   font-size: 30px;
 }
 

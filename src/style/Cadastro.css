@@ -14,26 +14,26 @@ body {
   padding: 40px;
   border-radius: 10px;
   width: 700px;
-  height: 530px;
-  margin-top: 34px;
+  height: 510px;
+  margin-top: 50px;
 }
 
 .header_cadastro {
   padding-bottom: 50px;
   opacity: 0.8;
-  color: #fff;
+  color: white;
 }
 
 .header_cadastro::after {
   content: "";
   width: 135px;
   height: 1px;
-  background-color: #fff;
+  background-color: #FD6D12;
   display: block;
 }
 
 .content_cadastro label {
-  color: #fff;
+  color: white;
   font-size: 12px;
   opacity: 0.8;
 }
@@ -48,9 +48,9 @@ body {
   padding:0 5px;
   background-color: transparent;
   border:none;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid white;
   outline: none;
-  color: #fff;
+  color: white;
 }
 
 .footer {
@@ -63,11 +63,12 @@ body {
   height: 40px;
   background-color: #FD6D12;
   border:none;
-  color:#e1e1e1;
+  font-weight: bold;
+  color:white;
   margin: 10px 0;
   cursor: pointer;
   align-items: center;
-  margin: 40px 25%;
+  margin: 20px 25%;
 }
 
 .footer_cadastro .login__submit:hover {

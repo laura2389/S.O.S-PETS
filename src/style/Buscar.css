@@ -15,13 +15,15 @@ body {
   height: 50vh;
 }
 
+
+
 .buscar-container {
-  background-color: rgba(19, 19, 19, 0.3); /*rgba(19, 19, 19, 0.3)*/
+  background-color: #ECF0F5; /*rgba(19, 19, 19, 0.3)*/
   padding: 40px;
   border-radius: 8px;
   width: 800px;
   margin-top: 240px;
-  background-color: #051020;
+  background-color: #ECF0F5;
   height: 500px;
 }
 
@@ -56,8 +58,9 @@ body {
   font-size: 20px;
 }
 
-.Genero{
+.text-names{
   font-size: 20px;
+  font-weight: bold;
   margin-bottom: 2px;
   color: #FD6D12;
 }
@@ -75,7 +78,7 @@ body {
 .aplicar{
   width: 75%;
   height: 36px;
-  background-color: #FD6D12;
+  background-color: #0049A9;
   color:#e1e1e1;
   border: none;
   border-radius:5px ; 
@@ -88,5 +91,5 @@ body {
 .buscar-aplicar{
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }

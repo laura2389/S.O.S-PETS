@@ -35,8 +35,6 @@ const Login = () => {
 
   const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
 
-
-
   const submitForm = async (e) => {
     e.preventDefault()
     
@@ -49,11 +47,7 @@ const Login = () => {
         await waitFor(1500);
         setLoading(false)
         navigate("/");
-       
-    
   }
-
-
 
   return (
    
@@ -94,7 +88,6 @@ const Login = () => {
        : <ClipLoader color={"blue"} loading={loading}  size={150} />
       }
     </div>
- 
   )
 }
 
