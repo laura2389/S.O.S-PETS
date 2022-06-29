@@ -42,10 +42,9 @@ const Feedback = () => {
   }, [])
 
   const salvaOuAtualiza = e => {
-    let url = "http://localhost:38000/feedback"
     e.preventDefault()
     const { sujestao } = formState
-    const respostaFeedback = myaxios.post(url, {sujestao}).then(res => alert("Feedback Enviado!"))
+    const respostaFeedback = myaxios.post("/feedback", {sujestao}).then(res => alert("Feedback Enviado!"))
     console.log({sujestao})
   }
 

@@ -1,5 +1,5 @@
 body{
-  background-color: #030A13;
+  background-color: #ECF0F5;
 }
 
 .img_home img{
@@ -14,28 +14,28 @@ nav{
 
 h1{
   font-size: 3.2rem;
-  color: white;
+  color: #FF8800;
 }
 
 h4{
-  color: white;
+  color: #0049A9;
 }
 
 a{
   text-decoration: none;
-  color: white;
+  color: #0049A9;
 }
 
 a:hover{
-  color: white;
+  color: #0049A9;
 }
 
 .title{
-  color:#FD6D12;
+  color:#FF8800;
 }
 
 .title:hover{
-  color:#FD6D12;
+  color:#FF8800;
 }
 
 .btns{
@@ -61,12 +61,12 @@ a:hover{
   margin-top: 20px;
   display: flex;
   align-items: center;
-  color: white;
+  color: #0049A9;
 }
 
 .entrar{
   margin: -10px 8px;
-  color: white;
+  color: #0049A9;
 }
 
 .home_page{

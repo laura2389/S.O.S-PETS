@@ -3,8 +3,10 @@ import myaxios from './myaxios'
 import AnimalDomestico from './AnimalDomestico'
 import Pagination from 'react-bootstrap/Pagination'
 import './style/Listagem.css'
+import {useSelector} from 'react-redux'
 
 const Listagem = () => {
+  const animaisDomesticosBusca = useSelector((state) => state.animaisDomesticos)
   const [animais, setanimais] = useState(null);
   const [curPage, setCurPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
@@ -35,8 +37,8 @@ for (let number = 0; number < totalPages; number++) {
 
   return (
     <div>
-      {animais != null ? animais.map(AnimalDomestico => (
-        <AnimalDomestico rm={AnimalDomestico.rm} 
+      {animaisDomesticosBusca != null ? animaisDomesticosBusca.map(AnimalDomestico => (
+        <AnimalDomestico 
           genero={AnimalDomestico.genero} 
           porte={AnimalDomestico.porte}
           cor={AnimalDomestico.cor}
@@ -44,7 +46,18 @@ for (let number = 0; number < totalPages; number++) {
           condicaoAnimal={AnimalDomestico.condicaoAnimal}
           acessorio={AnimalDomestico.acessorio}
           fotoAnimal={AnimalDomestico.fotoAnimal}  />
-        )) : "Nenhum animal encontrado" }
+        )) : 
+        animais != null ? animais.map(AnimalDomestico => (
+          <AnimalDomestico 
+            genero={AnimalDomestico.genero} 
+            porte={AnimalDomestico.porte}
+            cor={AnimalDomestico.cor}
+            especie={AnimalDomestico.porte}
+            condicaoAnimal={AnimalDomestico.condicaoAnimal}
+            acessorio={AnimalDomestico.acessorio}
+            fotoAnimal={AnimalDomestico.fotoAnimal}  />
+          )) : "Nenhum animal encontrado" }
+        }
         <Pagination>
         {items}
         </Pagination>

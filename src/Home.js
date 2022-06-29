@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className="home_page">
       <h1>
-        BEM VINDO AO <a className="title">SOS PETS</a>
+        BEM VINDO AO <a className="title">S.O.S PETS</a>
       </h1>
       <h4>
         Aqui você encontra o seu animal perdido com mais<br />
