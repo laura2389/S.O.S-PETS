@@ -31,7 +31,7 @@ const MeusPost = () => {
             <Button className="btn-danger" variant="danger">
               Excluir
             </Button>
-            <Button variant="primary">Editar</Button>
+            
           </Card.Body>
         </Card>
         <Card className="card" style={{ width: '20rem' }}>
@@ -56,7 +56,7 @@ const MeusPost = () => {
             <Button className="btn-danger" variant="danger">
               Excluir
             </Button>
-            <Button variant="primary">Editar</Button>
+            
           </Card.Body>
         </Card>
         <Card className="card" style={{ width: '20rem' }}>
@@ -81,7 +81,7 @@ const MeusPost = () => {
             <Button className="btn-danger" variant="danger">
               Excluir
             </Button>
-            <Button variant="primary">Editar</Button>
+            
           </Card.Body>
         </Card>
       </CardGroup>

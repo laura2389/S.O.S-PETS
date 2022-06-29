@@ -31,10 +31,9 @@ const Cadastro = () => {
 
   const submitForm = async e => {
     e.preventDefault()
-    const { email, nome, password } = formState
+    const { email, nome, telefone, password } = formState
     const resposta = await myaxios.post('/auth/register', { email, password })
     navigate('/login')
-    console.log({ email, nome, password })
   }
 
   return (

@@ -3,6 +3,8 @@ import './style/Buscar.css'
 import { useNavigate } from 'react-router-dom'
 import myaxios from './myaxios'
 import ClipLoader from "react-spinners/ClipLoader";
+import {useDispatch} from 'react-redux'
+import { queryAnimais } from './actions';
  
 const formReducer = (state, action) => {
   switch(action.type){
@@ -20,11 +22,12 @@ const formReducer = (state, action) => {
  
 const Buscar = () => {
   const navigate = useNavigate();
-  const initialState = { especie: "", genero: "", porte: "",  cor: "",  acessorio: "", condicaoAnimal: "" }
+  const myDispatch = useDispatch();
+  const initialState = { porte: "", especie: "", cor: "",  acessorio: "",  condicaoAnimal: "", genero: "" }
   const [formState, dispatch] = useReducer(formReducer, initialState);
   const [loading, setLoading] = useState(false)
   const [file, setfile] = useState(initialState)
-  const {especie,  genero, porte,  cor,  acessorio, condicaoAnimal} = formState
+  const {porte, especie, cor, acessorio, condicaoAnimal, genero} = formState
   const pegaValor = (e) => {
     console.log(e.target.value);
   } 
@@ -39,17 +42,14 @@ const Buscar = () => {
  
 const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
   const submeter = async (e) => {
-    dispatch({
-      type: 'ATUALIZA',
-      name: e.target.name,
-      value: e.target.value
-    }) 
+   
     e.preventDefault();
-    const  { especie,  genero, porte,  cor,  acessorio, condicaoAnimal} = formState
-    console.log( especie,  genero, porte,  cor,  acessorio, condicaoAnimal )
+   
+   
     const u = new URLSearchParams(formState).toString();
-    const resposta = await
-    myaxios.get("/animaldomestico/query?" + u)
+   
+    const animaisDomesticos = await myaxios.get("/animaldomestico/query?" + u)
+    myDispatch(queryAnimais(animaisDomesticos.data))
     setLoading(true);
     await waitFor(1500);
     setLoading(false)
