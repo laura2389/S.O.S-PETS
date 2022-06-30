@@ -32,7 +32,7 @@ const Cadastro = () => {
   const submitForm = async e => {
     e.preventDefault()
     const { email, nome, telefone, password } = formState
-    const resposta = await myaxios.post('/auth/register', { email, password })
+    const resposta = await myaxios.post('/auth/register', { email, password, nome, telefone })
     navigate('/login')
   }
 
